@@ -38,6 +38,7 @@ if(isset($_GET['code'])){
 	$response = $oauth->getAccessToken($client_id, $client_secret, $redirect_uri, $code);
 	$access_token = $response['access_token'];
 	echo $access_token;
+	echo "tewt";
 }
 ?>
 
