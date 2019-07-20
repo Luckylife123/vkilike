@@ -21,7 +21,7 @@ $vk = new VKApiClient();
 $vk = new VKApiClient('5.95');
 $oauth = new VKOAuth();
 $client_id = 7064288;
-$redirect_uri = 'vk';
+$redirect_uri = 'vklike.tmweb.ru';
 $display = VKOAuthDisplay::PAGE;
 $scope = array(VKOAuthUserScope::WALL, VKOAuthUserScope::GROUPS);
 $state = 'secret_state_code';
@@ -33,7 +33,7 @@ if(isset($_GET['code'])){
     $oauth = new VKOAuth();
     $client_id = 7064288;
     $client_secret = '2QYjnWDPPGsfyh4EfRSj';
-	$redirect_uri = 'http://vk/';
+	$redirect_uri = 'vklike.tmweb.ru';
 	$code = $_GET['code'];
 	$response = $oauth->getAccessToken($client_id, $client_secret, $redirect_uri, $code);
 	$access_token = $response['access_token'];
