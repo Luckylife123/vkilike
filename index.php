@@ -17,29 +17,20 @@ use \VK\OAuth\VKOAuthDisplay;
 use \VK\OAuth\Scopes\VKOAuthUserScope;
 use \VK\OAuth\VKOAuthResponseType;
 
-$vk = new VKApiClient();
-$vk = new VKApiClient('5.95');
-$oauth = new VKOAuth();
-$client_id = 7064288;
-$redirect_uri = 'vklike.tmweb.ru';
-$display = VKOAuthDisplay::PAGE;
-$scope = array(VKOAuthUserScope::WALL, VKOAuthUserScope::GROUPS);
-$state = 'secret_state_code';
 
-$browser_url = $oauth->getAuthorizeUrl(VKOAuthResponseType::CODE, $client_id, $redirect_uri, $display, $scope, $state);
-echo $browser_url;
-
-if(isset($_GET['code'])){
-    $oauth = new VKOAuth();
-    $client_id = 7064288;
-    $client_secret = '2QYjnWDPPGsfyh4EfRSj';
-	$redirect_uri = 'vklike.tmweb.ru';
-	$code = $_GET['code'];
-	$response = $oauth->getAccessToken($client_id, $client_secret, $redirect_uri, $code);
-	$access_token = $response['access_token'];
-	echo $access_token;
-	echo "tewt";
-}
+$login = "login";
+$password = "password";
+$url = "https://oauth.vk.com/token?grant_type=password&client_id=3697615&client_secret=AlVXZFMUqyrnABp8ncuU&username=".$login."&password=".$password;
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL,$url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+$output = curl_exec($ch);
+echo curl_error($ch);
+curl_close($ch);
+echo $output;
 ?>
 
 
