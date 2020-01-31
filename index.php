@@ -31,8 +31,7 @@ if($_GET['code']){
 $access_token = '5c563975d46c5ec48b750fed0d59d09d667d8cd7ca0e15c87d3d0cfef719ef3b375db7052a1975f9f9dff';
 $vk = new VK\Client\VKApiClient();
 $response = $vk->wall()->post($access_token, array(
-    'owner_id' => '-64560546',
-    'from_group' => '1',
+    'owner_id' => '27162548',
 	'message' => 'test'
 ));
 print_r($response);
