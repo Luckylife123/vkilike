@@ -101,6 +101,7 @@ class CurlHttpClient implements TransportClient {
 
         $curl_error_code = curl_errno($curl);
         $curl_error = curl_error($curl);
+        die($curl_error);
       
         $http_status = curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
         curl_close($curl);
