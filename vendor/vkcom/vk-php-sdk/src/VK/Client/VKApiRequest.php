@@ -121,16 +121,16 @@ class VKApiRequest {
      * @throws VKClientException
      */
     private function parseResponse(TransportClientResponse $response) {
-        echo 'first';
+
         $this->checkHttpStatus($response);
 
         $body = $response->getBody();
         $decode_body = $this->decodeBody($body);
 
         if (isset($decode_body[static::KEY_ERROR])) {
-            echo 'las';
+
             $error = $decode_body[static::KEY_ERROR];
-            echo $error;
+            print_r($error);
             $api_error = new VKApiError($error);
             throw ExceptionMapper::parse($api_error);
         }
