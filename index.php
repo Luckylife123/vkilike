@@ -31,6 +31,7 @@ if($_GET['code']){
 if($access_token){
     echo "test";
     $vk = new VK\Client\VKApiClient();
+    echo "test";
     $response = $vk->wall()->post($access_token, array(
         'owner_id' => '27162548',
         'message' => 'test',
