@@ -66,7 +66,6 @@ class VKApiRequest {
      * @throws VKApiException
      */
     public function post(string $method, string $access_token, array $params = array()) {
-        echo 'first';
         $params = $this->formatParams($params);
         $params[static::PARAM_ACCESS_TOKEN] = $access_token;
 
@@ -86,7 +85,6 @@ class VKApiRequest {
             throw new VKClientException($e);
         }
 
-        echo 'last';
         return $this->parseResponse($response);
     }
 
@@ -123,6 +121,7 @@ class VKApiRequest {
      * @throws VKClientException
      */
     private function parseResponse(TransportClientResponse $response) {
+        echo 'first';
         $this->checkHttpStatus($response);
 
         $body = $response->getBody();
@@ -133,7 +132,7 @@ class VKApiRequest {
             $api_error = new VKApiError($error);
             throw ExceptionMapper::parse($api_error);
         }
-
+        echo 'lastt';
         if (isset($decode_body[static::KEY_RESPONSE])) {
             return $decode_body[static::KEY_RESPONSE];
         } else {
