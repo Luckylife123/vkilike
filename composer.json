@@ -1,5 +1,5 @@
 {
     "require": {
-        "vkcom/vk-php-sdk": "^5.100"
+        "vkcom/vk-php-sdk": "^5.101"
     }
 }

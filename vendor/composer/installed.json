@@ -1,17 +1,17 @@
 [
     {
         "name": "vkcom/vk-php-sdk",
-        "version": "5.100.0",
-        "version_normalized": "5.100.0.0",
+        "version": "5.101.0",
+        "version_normalized": "5.101.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/VKCOM/vk-php-sdk.git",
-            "reference": "4385fa01974bb833b85cd0876d099de8b00fd88b"
+            "reference": "46a8f76503050c0c6730359fc234a4d6448b8653"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/VKCOM/vk-php-sdk/zipball/4385fa01974bb833b85cd0876d099de8b00fd88b",
-            "reference": "4385fa01974bb833b85cd0876d099de8b00fd88b",
+            "url": "https://api.github.com/repos/VKCOM/vk-php-sdk/zipball/46a8f76503050c0c6730359fc234a4d6448b8653",
+            "reference": "46a8f76503050c0c6730359fc234a4d6448b8653",
             "shasum": ""
         },
         "require": {
@@ -21,7 +21,7 @@
             "phpunit/phpunit": "^6",
             "vkcom/vk-api-schema": "^5.80.1"
         },
-        "time": "2019-07-02T08:05:35+00:00",
+        "time": "2019-08-16T12:13:20+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

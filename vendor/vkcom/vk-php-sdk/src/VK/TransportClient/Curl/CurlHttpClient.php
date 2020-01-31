@@ -25,6 +25,8 @@ class CurlHttpClient implements TransportClient {
             CURLOPT_HEADER         => true,
             CURLOPT_CONNECTTIMEOUT => $connection_timeout,
             CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_SSL_VERIFYHOST => false,
+            CURLOPT_SSL_VERIFYPEER => false
         );
     }
 
@@ -93,12 +95,12 @@ class CurlHttpClient implements TransportClient {
     public function sendRequest(string $url, array $opts) {
         $curl = curl_init($url);
 
-        curl_setopt_array($curl, $this->initial_opts + $opts );
+        curl_setopt_array($curl, $this->initial_opts + $opts);
 
         $response = curl_exec($curl);
 
         $curl_error_code = curl_errno($curl);
-
+        $curl_error = curl_error($curl);
       
         $http_status = curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
         curl_close($curl);

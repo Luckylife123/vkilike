@@ -11,28 +11,26 @@
 <?php
 require_once __DIR__.'/vendor/autoload.php';
 
-use \VK\Client\VKApiClient;
-use \VK\OAuth\VKOAuth;
-use \VK\OAuth\VKOAuthDisplay;
-use \VK\OAuth\Scopes\VKOAuthUserScope;
-use \VK\OAuth\VKOAuthResponseType;
 
+$vk = new  VK\Client\VKApiClient();
 
-$login = "login";
-$password = "password";
-$url = "https://oauth.vk.com/token?grant_type=password&client_id=3697615&client_secret=AlVXZFMUqyrnABp8ncuU&username=".$login."&password=".$password;
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL,$url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_HEADER, 0);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-$output = curl_exec($ch);
-echo curl_error($ch);
-curl_close($ch);
-echo $output;
+$oauth = new VK\OAuth\VKOAuth();
+$client_id = 7302376;
+$redirect_uri = 'vk/';
+$display = VK\OAuth\VKOAuthDisplay::PAGE;
+$scope = array(VK\OAuth\Scopes\VKOAuthUserScope::WALL, VK\OAuth\Scopes\VKOAuthUserScope::GROUPS);
+$state = '';
+$browser_url = $oauth->getAuthorizeUrl(VK\OAuth\VKOAuthResponseType::CODE, $client_id, $redirect_uri, $display, $scope, $state);
+echo  '<a href="'.$browser_url.'"/>Url auth</a>';
+$code = $_GET['code'];
+if($code){
+    $client_secret = 'XDQY2tbz2dLSWigCI4FA';
+    $response = $oauth->getAccessToken($client_id, $client_secret, $redirect_uri, $code);
+    $access_token = $response['access_token'];
+    die($access_token);
+}
+
 ?>
-
 
 
 
