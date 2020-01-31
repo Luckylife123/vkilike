@@ -126,9 +126,11 @@ class VKApiRequest {
 
         $body = $response->getBody();
         $decode_body = $this->decodeBody($body);
-echo 'las';
+
         if (isset($decode_body[static::KEY_ERROR])) {
+            echo 'las';
             $error = $decode_body[static::KEY_ERROR];
+            echo $error;
             $api_error = new VKApiError($error);
             throw ExceptionMapper::parse($api_error);
         }
