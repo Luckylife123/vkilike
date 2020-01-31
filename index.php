@@ -30,6 +30,7 @@ if(!$_SESSION['access_token']){
         $access_token = $response['access_token'];
         if($access_token){
             $_SESSION['access_token'] = $access_token;
+            echo $access_token;
             echo $_SESSION['access_token'];
         }
     }
