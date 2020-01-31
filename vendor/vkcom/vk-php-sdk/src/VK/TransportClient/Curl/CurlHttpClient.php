@@ -98,7 +98,6 @@ class CurlHttpClient implements TransportClient {
         curl_setopt_array($curl, $this->initial_opts + $opts);
 
         $response = curl_exec($curl);
-        die($response);
 
         $curl_error_code = curl_errno($curl);
         $curl_error = curl_error($curl);

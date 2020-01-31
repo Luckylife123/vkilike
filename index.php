@@ -16,7 +16,7 @@ $vk = new  VK\Client\VKApiClient();
 
 $oauth = new VK\OAuth\VKOAuth();
 $client_id = 7302376;
-$redirect_uri = 'vk-posts.tmweb.ru/';
+$redirect_uri = 'http://vk-posts.tmweb.ru/';
 $display = VK\OAuth\VKOAuthDisplay::PAGE;
 $scope = array(VK\OAuth\Scopes\VKOAuthUserScope::WALL, VK\OAuth\Scopes\VKOAuthUserScope::GROUPS);
 $state = '';
