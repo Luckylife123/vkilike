@@ -28,14 +28,16 @@ if($_GET['code']){
     print_r($response);
     echo $access_token;
 }
-$vk = new VK\Client\VKApiClient();
-$response = $vk->wall()->post($access_token, array(
-    'owner_id' => '27162548',
-	'message' => 'test'
-));
-print_r($response);
-echo $response;
-echo "test";
+if($access_token){
+    $vk = new VK\Client\VKApiClient();
+    $response = $vk->wall()->post($access_token, array(
+        'owner_id' => '27162548',
+        'message' => 'test',
+    ));
+    print_r($response);
+    echo $response;
+    echo "test";
+}
 ?>
 
 
