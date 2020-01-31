@@ -33,7 +33,7 @@ $vk = new VK\Client\VKApiClient();
 $response = $vk->wall()->post($access_token, array(
     'owner_id' => '-64560546',
     'from_group' => '1',
-	'message' => 'test',
+	'message' => 'test'
 ));
 print_r($response);
 echo $response;
