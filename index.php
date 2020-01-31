@@ -28,7 +28,6 @@ if($_GET['code']){
     print_r($response);
     echo $access_token;
 }
-$access_token = '5c563975d46c5ec48b750fed0d59d09d667d8cd7ca0e15c87d3d0cfef719ef3b375db7052a1975f9f9dff';
 $vk = new VK\Client\VKApiClient();
 $response = $vk->wall()->post($access_token, array(
     'owner_id' => '27162548',
