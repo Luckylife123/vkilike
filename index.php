@@ -26,7 +26,7 @@ $code = $_GET['code'];
 if($code){
     $client_secret = 'XDQY2tbz2dLSWigCI4FA';
     $response = $oauth->getAccessToken($client_id, $client_secret, $redirect_uri, $code);
-    die($response);
+    print_r($response);
     $access_token = $response['access_token'];
     die($access_token);
 }
