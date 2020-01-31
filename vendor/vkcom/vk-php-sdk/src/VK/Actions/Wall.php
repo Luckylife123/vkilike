@@ -320,6 +320,7 @@ class Wall {
 	 * @return mixed
 	 */
 	public function post($access_token, array $params = []) {
+	    echo '1123';
 		return $this->request->post('wall.post', $access_token, $params);
 	}
 
