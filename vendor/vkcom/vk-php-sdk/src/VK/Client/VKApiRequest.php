@@ -130,9 +130,10 @@ class VKApiRequest {
         if (isset($decode_body[static::KEY_ERROR])) {
             $error = $decode_body[static::KEY_ERROR];
             $api_error = new VKApiError($error);
+            echo $api_error;
             throw ExceptionMapper::parse($api_error);
         }
-        echo 'lastt';
+
         if (isset($decode_body[static::KEY_RESPONSE])) {
             return $decode_body[static::KEY_RESPONSE];
         } else {
