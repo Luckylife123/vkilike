@@ -16,11 +16,12 @@ $scope = [VK\OAuth\Scopes\VKOAuthUserScope::WALL, VK\OAuth\Scopes\VKOAuthUserSco
 $state = '';
 $browser_url = $oauth->getAuthorizeUrl(VK\OAuth\VKOAuthResponseType::CODE, $client_id, $redirect_uri, $display, $scope, $state);
 echo '<a href="' . $browser_url . '"/>Url auth</a>';
-if($_GET){
+if($_GET['code']){
     $code = $_GET['code'];
     $client_secret = 'XDQY2tbz2dLSWigCI4FA';
     $response = $oauth->getAccessToken($client_id, $client_secret, $redirect_uri, $code);
     $access_token = $response['access_token'];
+    echo $access_token;
 }
 ?>
 
