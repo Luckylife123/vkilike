@@ -35,7 +35,9 @@ $response = $vk->wall()->post($access_token, array(
     'from_group' => '1',
 	'message' => 'test',
 ));
+print_r($response);
 echo $response;
+echo "test";
 ?>
 
 
