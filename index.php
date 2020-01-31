@@ -9,23 +9,6 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-session_start();
-
-// Удаляем все переменные сессии.
-$_SESSION = array();
-
-// Если требуется уничтожить сессию, также необходимо удалить сессионные cookie.
-// Замечание: Это уничтожит сессию, а не только данные сессии!
-if (ini_get("session.use_cookies")) {
-    $params = session_get_cookie_params();
-    setcookie(session_name(), '', time() - 42000,
-        $params["path"], $params["domain"],
-        $params["secure"], $params["httponly"]
-    );
-}
-
-// Наконец, уничтожаем сессию.
-session_destroy();
 
 
 
@@ -41,7 +24,10 @@ if($_GET['code']){
     $code = $_GET['code'];
     $client_secret = 'XDQY2tbz2dLSWigCI4FA';
     $response = $oauth->getAccessToken($client_id, $client_secret, $redirect_uri, $code);
+    echo '\n';
     $access_token = $response['access_token'];
+    print_r($response);
+    echo '\n';
     echo $access_token;
 }
 ?>
