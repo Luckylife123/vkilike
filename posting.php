@@ -17,7 +17,7 @@ class Posting {
 
     public function addPost($groupId, $text){
         $result = $this->vkApiClient->wall()->post($this->access_token,array(
-            'owner_id' => $groupId,
+            'owner_id' => '-'.$groupId,
             'message'  => $text
         ));
     }
