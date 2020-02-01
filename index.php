@@ -15,6 +15,7 @@ $text = 'test';
 $url = 'https://api.vk.com/method/wall.post?';
 $ch = curl_init();
 curl_setopt_array($ch, array(
+	CURLOPT_HEADER => TRUE,
 	CURL_POST => TRUE,
 	CURLOPT_RETURNTRANSFER => TRUE,
 	CURLOPT_SSL_VERIFYPEER => FALSE,
@@ -28,10 +29,6 @@ curl_setopt_array($ch, array(
 	CURLOPT_URL => $url,
 ));
 $query = curl_exec($ch);
-$curl_error_code = curl_errno($curl);
-$curl_error = curl_error($curl);
-
-$http_status = curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
 curl_close($ch);
 print_r($query);
 ?>
