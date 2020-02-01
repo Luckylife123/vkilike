@@ -128,7 +128,7 @@ class VKApiRequest {
 
         if (isset($decode_body[static::KEY_ERROR])) {
             $error = $decode_body[static::KEY_ERROR];
-            echo $error;
+            print_r($error);
             $api_error = new VKApiError($error);
             throw ExceptionMapper::parse($api_error);
         }
