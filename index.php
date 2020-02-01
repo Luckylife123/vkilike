@@ -25,19 +25,14 @@ if($_GET['code']){
     $client_secret = 'c0XrAfeDXiPVZSqN82ay';
     $response = $oauth->getAccessToken($client_id, $client_secret, $redirect_uri, $code);
     $access_token = $response['access_token'];
-    print_r($response);
-    echo $access_token;
 }
 if($access_token){
-    echo "test";
+	print_r($response);
     $vk = new VK\Client\VKApiClient();
-    echo "test";
     $response = $vk->wall()->post($access_token, array(
         'owner_id' => '27162548',
         'message' => 'test',
     ));
-    print_r($response);
-    echo $response;
     echo "test";
 }
 ?>
