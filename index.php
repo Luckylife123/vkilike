@@ -33,6 +33,7 @@ $state = '';
 $browser_url = $oauth->getAuthorizeUrl(VK\OAuth\VKOAuthResponseType::TOKEN, $client_id, $redirect_uri, $display, $scope, $state, null, false);
 echo '<a href="' . $browser_url . '"/>Url auth</a>';
 if($_GET['expires_in']){
+	echo $_GET['expires_in'];
     $access_token = $_GET['expires_in'];
 }
 if($access_token){
