@@ -11,7 +11,6 @@ class Posting {
     function __construct($access_token){
         $this->vkApiClient = new VKApiClient();
         $this->access_token = $access_token;
-        echo 'Posting object was created';
     }
 
 
@@ -21,11 +20,6 @@ class Posting {
             'owner_id' => $groupId,
             'message'  => $text
         ));
-        if($result){
-            echo 'Post Added';
-        }else{
-            echo 'Post error';
-        }
     }
 
 
@@ -35,15 +29,11 @@ class Posting {
                 'count'    => $count,
                 'offset'   => $offset
             ));
-            print_r($result);
-            echo 'get posts \n';
             return $result;
     }
 
     public function addToPosting($post){
-        $text = $post['items'][0]['text'];
-        echo 'get text \n';
-        return $text;
+        return $post['items'][0]['text'];
     }
 
 }
