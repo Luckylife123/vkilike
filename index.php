@@ -14,7 +14,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 $oauth = new VK\OAuth\VKOAuth();
 $client_id = 7302576;
-$redirect_uri = 'http://vk-posts.tmweb.ru/';
+$redirect_uri = 'vk-posts.tmweb.ru';
 $display = VK\OAuth\VKOAuthDisplay::PAGE;
 $scope = [VK\OAuth\Scopes\VKOAuthUserScope::WALL, VK\OAuth\Scopes\VKOAuthUserScope::GROUPS, VK\OAuth\Scopes\VKOAuthUserScope::OFFLINE];
 $state = '';
@@ -32,8 +32,8 @@ $state = '';
 //Implicit flow
 $browser_url = $oauth->getAuthorizeUrl(VK\OAuth\VKOAuthResponseType::TOKEN, $client_id, $redirect_uri, $display, $scope, $state, null, false);
 echo '<a href="' . $browser_url . '"/>Url auth</a>';
-if($_GET['#access_token']){
-    $access_token = $_GET['#access_token'];
+if($_GET['expires_in']){
+    $access_token = $_GET['expires_in'];
 }
 if($access_token){
 	echo $access_token;
