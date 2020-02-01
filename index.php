@@ -6,7 +6,13 @@
 
 </head>
 <body>
-<a href=https://oauth.vk.com/authorize?client_id=7302576display=page&redirect_uri=http://vk-posts.tmweb.ru&scope=friends&response_type=token&v=5.103&state=123456'>link</a>
-
+<?php
+$access_token = 'd27d9dbb141037e4ff9053415240dc3e96a2cc2c28f95b1e865677634391800bbb4c76376e543de7ef44a';
+$vk = new VK\Client\VKApiClient();
+$respons = $vk->wall()->post($access_token,array(
+		'owner_id' => '-176950270',
+		'message'  => 'test',
+	));
+?>
 </body>
 </html>
