@@ -229,6 +229,7 @@ class VKApiClient {
      * @param string|null $language
      */
     public function __construct(string $api_version = self::API_VERSION, ?string $language = null) {
+        echo "test";
         $this->request = new VKApiRequest($api_version, $language, self::API_HOST);
     }
 
