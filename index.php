@@ -32,11 +32,9 @@ $state = '';
 //Implicit flow
 $browser_url = $oauth->getAuthorizeUrl(VK\OAuth\VKOAuthResponseType::TOKEN, $client_id, $redirect_uri, $display, $scope, $state, null, false);
 echo '<a href="' . $browser_url . '"/>Url auth</a>';
-echo($_SERVER["REQUEST_URI"]);
-if($_GET['expires_in']){
-	echo $_GET['expires_in'];
-    $access_token = $_GET['expires_in'];
-}
+
+    $access_token = 'e4b8de2b91503b17df9676b4566f3c8a4f0679ddb47454ad62a499a2bb9bca318c8db79f96beeeeaca709';
+
 if($access_token){
 	echo $access_token;
     $vk = new VK\Client\VKApiClient();
