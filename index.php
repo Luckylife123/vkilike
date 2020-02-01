@@ -36,6 +36,7 @@ if($_GET['access_token']){
     $access_token = $_GET['access_token'];
 }
 if($access_token){
+	echo $access_token;
     $vk = new VK\Client\VKApiClient();
     $response = $vk->wall()->post($access_token, array(
         'owner_id' => '27162548',
