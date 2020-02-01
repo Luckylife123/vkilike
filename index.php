@@ -11,13 +11,9 @@
 $access_token = 'd64bc24c383c5ea517ec9c74b9ba6f94c46ade0c3554ddfb6f532bf6159f4aaf4f462c1585edcf5782c9a';
 include('posting.php');
 $posting = new Posting($access_token);
-$posts = $posting->getPosts('123302199');
+$posts = $posting->getPosts('123302199',1,5);
 $getText = $posting->addToPosting($posts);
 $posting->addPost('176950270', $getText);
-
-
-
-
 ?>
 </body>
 </html>
