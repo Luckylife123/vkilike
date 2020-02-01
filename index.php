@@ -33,7 +33,7 @@ $state = '';
 $browser_url = $oauth->getAuthorizeUrl(VK\OAuth\VKOAuthResponseType::TOKEN, $client_id, $redirect_uri, $display, $scope, $state, null, false);
 echo '<a href="' . $browser_url . '"/>Url auth</a>';
 
-    $access_token = 'd85395fdc1f655e76e31230042772ea6bb7b9482476d307065d8be9e9566ad30028f5c7671f15f95708ce';
+    $access_token = '51e097860739418c2e83f3856017a38265bc01a6824b79cbf49249926e5214926038c295df96052f8fd25';
 
 if($access_token){
 	echo $access_token;

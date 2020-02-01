@@ -100,7 +100,7 @@ class VKOAuth {
         if ($revoke) {
             $params[static::PARAM_REVOKE] = 1;
         }
-        print_r($params);
+
         return $this->host . static::ENDPOINT_AUTHORIZE . '?' . http_build_query($params);
     }
 
