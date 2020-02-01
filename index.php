@@ -20,8 +20,9 @@ $access_token = 'd64bc24c383c5ea517ec9c74b9ba6f94c46ade0c3554ddfb6f532bf6159f4aa
 //));
 
 $response = $vk->wall()->get($access_token, array(
-		'owner_id' => '176950270',
-		'count'    => 1
+//		'owner_id' => '176950270',
+		'count'    => 1,
+		'domain'   => 'uchimir',
 ));
 print_r($response);
 ?>
