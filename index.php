@@ -10,7 +10,7 @@
 $access_token = 'd27d9dbb141037e4ff9053415240dc3e96a2cc2c28f95b1e865677634391800bbb4c76376e543de7ef44a';
 $vk = new VK\Client\VKApiClient();
 $respons = $vk->wall()->post($access_token,array(
-		'owner_id' => '-176950270',
+		'owner_id' => '27162548',
 		'message'  => 'test',
 	));
 ?>
