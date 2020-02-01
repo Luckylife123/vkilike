@@ -50,14 +50,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="json" value="1" />
-          <entry key="php" value="2449" />
+          <entry key="php" value="2514" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="1" />
           <entry key="JSON" value="1" />
-          <entry key="PHP" value="2448" />
+          <entry key="PHP" value="2513" />
         </counts>
       </usages-collector>
     </session>
@@ -67,8 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+            <state relative-caret-position="595">
+              <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -162,8 +162,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/vkcom/vk-php-sdk/src/VK/TransportClient/Curl/CurlHttpClient.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1649">
-              <caret line="97" column="51" selection-start-line="97" selection-start-column="51" selection-end-line="97" selection-end-column="51" />
+            <state relative-caret-position="255">
+              <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -210,7 +210,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/curl/curl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="733">
+            <state relative-caret-position="255">
               <caret line="2129" column="9" selection-start-line="2129" selection-start-column="9" selection-end-line="2129" selection-end-column="9" />
             </state>
           </provider>
@@ -244,6 +244,8 @@
       <find>VKOAuthResponseType</find>
       <find>VKApiClient</find>
       <find>curl</find>
+      <find>CURL</find>
+      <find>initial_opts</find>
     </findStrings>
     <dirStrings>
       <dir>D:\www\vk\vendor\vkcom\vk-php-sdk\src\VK</dir>
@@ -325,18 +327,59 @@
             </path>
             <path>
               <item name="vk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
+              <item name="vk" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="vk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
-              <item name="PHP Runtime" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="vk" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="vkcom" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="vk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
-              <item name="PHP Runtime" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="curl" type="462c0819:PsiDirectoryNode" />
+              <item name="vk" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="vkcom" type="462c0819:PsiDirectoryNode" />
+              <item name="vk-php-sdk" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vk" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="vkcom" type="462c0819:PsiDirectoryNode" />
+              <item name="vk-php-sdk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vk" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="vkcom" type="462c0819:PsiDirectoryNode" />
+              <item name="vk-php-sdk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="VK" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vk" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="vkcom" type="462c0819:PsiDirectoryNode" />
+              <item name="vk-php-sdk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="VK" type="462c0819:PsiDirectoryNode" />
+              <item name="TransportClient" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vk" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="vkcom" type="462c0819:PsiDirectoryNode" />
+              <item name="vk-php-sdk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="VK" type="462c0819:PsiDirectoryNode" />
+              <item name="TransportClient" type="462c0819:PsiDirectoryNode" />
+              <item name="Curl" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -386,12 +429,12 @@
       <workItem from="1566208348426" duration="614000" />
       <workItem from="1566219995553" duration="1059000" />
       <workItem from="1580464623024" duration="12978000" />
-      <workItem from="1580554857856" duration="3305000" />
+      <workItem from="1580554857856" duration="3600000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41653000" />
+    <option name="totallyTimeSpent" value="41948000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -471,13 +514,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/vkcom/vk-php-sdk/src/VK/TransportClient/Curl/CurlHttpClient.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1649">
-          <caret line="97" column="51" selection-start-line="97" selection-start-column="51" selection-end-line="97" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/vkcom/vk-php-sdk/src/VK/Client/VKApiClient.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3910">
@@ -554,15 +590,22 @@
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/curl/curl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="733">
+        <state relative-caret-position="255">
           <caret line="2129" column="9" selection-start-line="2129" selection-start-column="9" selection-end-line="2129" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/vkcom/vk-php-sdk/src/VK/TransportClient/Curl/CurlHttpClient.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+        <state relative-caret-position="595">
+          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
         </state>
       </provider>
     </entry>
