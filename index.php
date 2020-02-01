@@ -42,7 +42,7 @@ if($access_token){
         'owner_id' => '27162548',
         'message' => 'test',
     ));
-    echo "test";
+    echo "test"; 
 }
 ?>
 
