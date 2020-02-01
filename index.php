@@ -32,8 +32,8 @@ $state = '';
 //Implicit flow
 $browser_url = $oauth->getAuthorizeUrl(VK\OAuth\VKOAuthResponseType::TOKEN, $client_id, $redirect_uri, $display, $scope, $state, null, false);
 echo '<a href="' . $browser_url . '"/>Url auth</a>';
-if($_GET['token']){
-    $access_token = $_GET['token'];
+if($_GET['access_token']){
+    $access_token = $_GET['access_token'];
 }
 if($access_token){
     $vk = new VK\Client\VKApiClient();
