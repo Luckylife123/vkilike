@@ -25,8 +25,6 @@ class CurlHttpClient implements TransportClient {
             CURLOPT_HEADER         => true,
             CURLOPT_CONNECTTIMEOUT => $connection_timeout,
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_SSL_VERIFYHOST => false,
-            CURLOPT_SSL_VERIFYPEER => false
         );
     }
 
