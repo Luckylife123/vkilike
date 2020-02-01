@@ -13,6 +13,7 @@ $respons = $vk->wall()->post($access_token,array(
 		'owner_id' => '27162548',
 		'message'  => 'test',
 	));
+print_r($respons);
 ?>
 </body>
 </html>
