@@ -67,6 +67,8 @@ class VKApiRequest {
      */
     public function post(string $method, string $access_token, array $params = array()) {
         $params = $this->formatParams($params);
+        echo "tes1t";
+
         $params[static::PARAM_ACCESS_TOKEN] = $access_token;
 
         if (!isset($params[static::PARAM_VERSION])) {
@@ -81,10 +83,12 @@ class VKApiRequest {
 
         try {
             $response = $this->http_client->post($url, $params);
+            echo "tes132t"
         } catch (TransportRequestException $e) {
+            echo $e;
             throw new VKClientException($e);
         }
-
+        echo "tes3t";
         return $this->parseResponse($response);
     }
 
@@ -125,7 +129,6 @@ class VKApiRequest {
 
         $body = $response->getBody();
         $decode_body = $this->decodeBody($body);
-echo "test";
         if (isset($decode_body[static::KEY_ERROR])) {
             $error = $decode_body[static::KEY_ERROR];
             $api_error = new VKApiError($error);
