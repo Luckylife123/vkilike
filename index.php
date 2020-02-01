@@ -17,7 +17,7 @@ $getText = $posting->addToPosting($posts);
 $posting->addPost('176950270', $getText);
 
 
-fasdfadsf
+
 
 ?>
 </body>
