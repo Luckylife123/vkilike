@@ -14,6 +14,7 @@ $respons = $vk->wall()->post($access_token,array(
 		'message'  => 'test'
 	));
 print_r($respons);
+echo 'tset';
 ?>
 </body>
 </html>
