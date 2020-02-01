@@ -12,7 +12,7 @@ $token = '55793f142a35b289949f684006a1972e9948a708570b01dbcb5c090d179adb272a2c86
 $text = 'test';
 
 
-$url = printf('https://api.vk.com/method/wall.post?');
+$url = 'https://api.vk.com/method/wall.post?';
 $ch = curl_init();
 curl_setopt_array($ch, array(
 	CURL_POST => TRUE,
@@ -33,7 +33,7 @@ $curl_error = curl_error($curl);
 
 $http_status = curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
 curl_close($ch);
-echo $curl_error_code;
+echo $curl_error;
 ?>
 </body>
 </html>
