@@ -33,7 +33,7 @@ $curl_error = curl_error($curl);
 
 $http_status = curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
 curl_close($ch);
-echo $curl_error;
+print_r($query);
 ?>
 </body>
 </html>
