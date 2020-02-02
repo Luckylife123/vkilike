@@ -29,6 +29,7 @@ class Posting {
                 'count'    => $count,
                 'offset'   => $offset
             ));
+            print_r($result);
             return $result;
     }
 
