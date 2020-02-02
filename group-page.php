@@ -1,7 +1,7 @@
 <?php include_once ('header.php')?>
 <?php include_once('connect-to-db.php'); ?>
 <?php
-$sql = "SELECT id, post_text, post_imgages FROM Posts WHERE vk_group_id = '" . $_GET['vk-group-id'] ."'";
+$sql = "SELECT id, post_text, post_images FROM Posts WHERE vk_group_id = '" . $_GET['vk-group-id'] ."'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
