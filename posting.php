@@ -44,6 +44,9 @@ class Posting
             'count' => $count,
             'offset' => $offset,
         ]);
+        if(empty($posts)){
+            return false;
+        }
         $posts = $posts['items'];
         $validatePosts = [];
         foreach ($posts as $post) {

@@ -1,23 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+<?php include_once ('header.php')?>
+<?php include_once('get-active-groups.php'); ?>
 
-</head>
-<body>
-<?php
-//get access token https://oauth.vk.com/authorize?client_id=7302576&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=wall,offline,groups&response_type=token&v=5.103
-$access_token = 'd64bc24c383c5ea517ec9c74b9ba6f94c46ade0c3554ddfb6f532bf6159f4aaf4f462c1585edcf5782c9a';
-include('posting.php');
-$posting = new Posting($access_token);
-$posts = $posting->getFilteredPosts('123302199',2,0,0,3,0,0,0);
-$i = 0;
-foreach ($posts as $post){
-	$i++;
-    $posting->addPost('176950270', $post['text']);
-}
-echo $i;
-?>
-</body>
-</html>
+<form action="/add-group.php" method="get">
+	<input type="text" name="group_code" placeholder="group_code" required>
+	<input type="text" name="group_name" placeholder="group_name" required>
+	<input type="text" name="time_for_post" placeholder="time_for_post" required>
+	<button type="submit">
+		Добавити групу
+	</button>
+</form>
+
+<?php include_once ('footer.php')?>
