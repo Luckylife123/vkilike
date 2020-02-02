@@ -24,7 +24,7 @@ $posts = $posting->getFilteredPosts($groupId, $count,$offset,$photos_in_post,$co
 $added = false;
 if($posts){
     foreach ($posts as $post){
-        $sql = "INSERT INTO Posts (vk_group_id, post_text, post_photos) VALUES ('"
+        $sql = "INSERT INTO Posts (vk_group_id, post_text, post_images) VALUES ('"
             . $vk_group_id
             . "','"
             . $post['text']
