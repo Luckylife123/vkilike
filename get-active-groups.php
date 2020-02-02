@@ -1,6 +1,6 @@
 <?php include_once('connect-to-db.php'); ?>
 <?php
-$sql = "SELECT id, group_code, group_name FROM VK_Groups";
+$sql = "SELECT id, group_code, group_name FROM Vk_Groups";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()):?>
