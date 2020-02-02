@@ -12,9 +12,12 @@ $access_token = 'd64bc24c383c5ea517ec9c74b9ba6f94c46ade0c3554ddfb6f532bf6159f4aa
 include('posting.php');
 $posting = new Posting($access_token);
 $posts = $posting->getFilteredPosts('123302199',10,0,0,0,0,0,0);
+$i = 0;
 foreach ($posts as $post){
+	$i++;
     $posting->addPost('176950270', $post['text']);
 }
+echo $i;
 ?>
 </body>
 </html>
