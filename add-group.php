@@ -2,7 +2,7 @@
 <?php
 
 
-$sql = "INSERT INTO VK_Groups (group_code, group_name, time_for_post) VALUES ('"
+$sql = "INSERT INTO Vk_Groups (group_code, group_name, time_for_post) VALUES ('"
     . $_GET['group_code']
     . "','"
     . $_GET['group_name']
