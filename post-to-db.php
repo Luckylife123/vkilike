@@ -38,6 +38,7 @@ if($posts) {
 function addPostToDb($conn,$vk_group_id,$post_text,$post_attachments){
     $time_for_post = getTimeForPost($vk_group_id, $conn);
     $imagesPaths = saveImages($post_attachments, $conn);
+    die($imagesPaths);
     if(empty($imagesPaths)){
         die('error images paths');
     }
