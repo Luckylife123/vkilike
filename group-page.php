@@ -32,6 +32,7 @@ if ($result->num_rows > 0) {
 	        </div>
 	        <form action="delete-post.php" method="get">
 		        <input type="text" name="post-id" hidden value="<?php echo $row['id']; ?>">
+		        <input type="text" name="vk-group-id" value="<?php echo $vk_group_id?>" hidden>
 		        <button type="submit">Видалити пост</button>
 	        </form>
         </div>
