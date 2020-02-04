@@ -73,6 +73,7 @@ function saveImages($post_attachments, $conn){
                 $pathId =  1;
             }
             else{
+                die($conn->query($sql));
                 $pathId = $conn->query($sql);
             }
             $imgPath = 'images/posts/post'.$pathId;
