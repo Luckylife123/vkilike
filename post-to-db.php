@@ -51,7 +51,7 @@ function addPostToDb($conn,$vk_group_id,$post_text,$post_attachments){
 }
 function getTimeForPost($vk_group_id, $conn){
     $time_group_for_post = getGroupTimeForPost($vk_group_id, $conn);
-    $sql = "SELECT time_for_post FROM Posts WHERE vk_group_id = '".$vk_group_id."' ORDER BY 'time_for_post' DESC";
+    $sql = "SELECT time_for_post FROM Posts WHERE vk_group_id = '".$vk_group_id."' ORDER BY time_for_post DESC";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
