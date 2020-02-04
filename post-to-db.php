@@ -58,9 +58,9 @@ function addPostToDb($conn,$vk_group_id,$post_text,$post_attachments){
 
 function saveImages($post_attachments, $conn){
     $imagePaths = [];
-    print_r($post_attachments);
-    die($post_attachments);
     foreach ($post_attachments as $attachment){
+        print_r($attachment);
+        die('test');
         if($attachment['type'] == 'photo'){
             $max_width = 0;
             $imageUrl = "";
