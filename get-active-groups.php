@@ -8,6 +8,10 @@ if ($result->num_rows > 0) {
             <span>
                     <?php echo $row['group_name']; ?>
             </span>
+			<form action="/delete-group.php" method="get">
+				<input type="text" name="vk-group-id" hidden value="<?php echo $row['id']; ?>">
+				<button type="submit">Видалити группу</button>
+			</form>
 			<form action="/group-page.php" method="get">
 				<input type="text" name="vk-group-id" hidden value="<?php echo $row['id']; ?>">
 				<button type="submit">Відкрити пости</button>
