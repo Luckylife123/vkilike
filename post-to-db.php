@@ -21,7 +21,7 @@ $added = false;
 
 if($posts) {
     foreach ($posts as $post){
-        $post_text = $post['text'];
+        $post_text = trim($post['text']);
         $post_attachments = $post['text'];
         addPostToDb($conn,$vk_group_id,$post_text,$post_attachments);
     }
