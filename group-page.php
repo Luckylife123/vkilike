@@ -3,7 +3,7 @@
 <?php
 
 $vk_group_id = $_GET['vk-group-id'];
-$sql = "SELECT id, post_text, post_images, time_for_post FROM Posts WHERE vk_group_id = '" . $vk_group_id ."' AND is_posted = '0'  ORDER BY 'time_for_post' ASC";
+$sql = "SELECT id, post_text, post_images, time_for_post FROM Posts ORDER BY 'time_for_post' ASC WHERE vk_group_id = '" . $vk_group_id ."' AND is_posted = '0'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
