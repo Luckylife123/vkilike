@@ -52,7 +52,7 @@ function getTimeForPost($vk_group_id, $conn){
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $last_post_time = new DateTime(['time_for_post']);
+        $last_post_time = new DateTime($row['time_for_post']);
         $last_post_time->add(new DateInterval('PT' . $time_group_for_post . 'M'));
         $post_time = $last_post_time->format('Y-m-d H:i:s');
         return $post_time;
