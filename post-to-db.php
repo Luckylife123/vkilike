@@ -60,7 +60,7 @@ function saveImages($post_attachments, $conn){
     $imagePaths = [];
     $sql = "SELECT 'auto_increment' FROM INFORMATION_SCHEMA.TABLES WHERE table_name = 'Posts'";
     $result= $conn->query($sql);
-    if($result){
+    if(!$result){
         $pathId =  1;
     }
     else{
