@@ -24,6 +24,7 @@ if ($result->num_rows > 0) {
 		        <form action="edit-time.php" method="get">
 			        <input type="text" name="vk-group-id" value="<?php echo $vk_group_id?>" hidden>
 			        <input type="text" name="post-id" value="<?php echo $row['id']?>" hidden>
+                    <?php echo $row['time_for_post'];?>
 			        <input type="date" name="post-time" value="<?php echo $row['time_for_post'];?>">
 			        <button type="submit">Зберегти час</button>
 		        </form>
