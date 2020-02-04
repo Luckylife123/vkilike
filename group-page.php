@@ -18,9 +18,10 @@ if ($result->num_rows > 0) {
 	            </form>
             </div>
             <div>
-                <?php foreach ($row['post_images'] as $imagePath){
+                <?php foreach (json_decode($row['post_images']) as $imagePath){
                 	echo '<img href="/'.$imagePath.'">';
-                };?>
+                }
+                ?>
             </div>
 	        <div>
 		        <form action="edit-time.php" method="get">
