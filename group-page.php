@@ -3,7 +3,7 @@
 <?php
 
 $vk_group_id = $_GET['vk-group-id'];
-$sql = "SELECT id, post_text, post_images FROM Posts WHERE vk_group_id = '" . $vk_group_id ."' AND is_posted = '0'";
+$sql = "SELECT id, post_text, post_images, time_for_post FROM Posts WHERE vk_group_id = '" . $vk_group_id ."' AND is_posted = '0'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -24,8 +24,7 @@ if ($result->num_rows > 0) {
 		        <form action="edit-time.php" method="get">
 			        <input type="text" name="vk-group-id" value="<?php echo $vk_group_id?>" hidden>
 			        <input type="text" name="post-id" value="<?php echo $row['id']?>" hidden>
-                    <?php echo $row['time_for_post'];?>
-			        <input type="date" name="post-time" value="<?php echo $row['time_for_post'];?>">
+			        <input name="post-time" value="<?php echo $row['time_for_post'];?>">
 			        <button type="submit">Зберегти час</button>
 		        </form>
 	        </div>
