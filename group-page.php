@@ -13,9 +13,7 @@ if ($result->num_rows > 0) {
 	            <form action="edit-text.php" method="get">
 		            <input type="text" name="vk-group-id" value="<?php echo $vk_group_id?>" hidden>
 		            <input type="text" name="post-id" value="<?php echo $row['id']?>" hidden>
-		            <textarea name="post-text" cols="30" rows="10">
-			            <?php echo $row['post_text'];?>
-		            </textarea>
+		            <textarea name="post-text" cols="30" rows="10"><?php echo $row['post_text'];?></textarea>
 		            <button type="submit">Зберегти текст</button>
 	            </form>
             </div>
