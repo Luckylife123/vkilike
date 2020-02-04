@@ -69,7 +69,7 @@ function saveImages($post_attachments, $conn){
                 }
             }
             $pathId = $conn->insert_id+1;
-            $imgPath = 'images/posts/post'.$pathId.'/'.$imageName;
+            $imgPath = '/images/posts/post'.$pathId.'/'.$imageName;
             if(!file_put_contents($imgPath, file_get_contents($imageUrl))){
                 die($imgPath);
                 return false;
