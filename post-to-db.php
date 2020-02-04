@@ -58,7 +58,7 @@ function addPostToDb($conn,$vk_group_id,$post_text,$post_attachments){
 
 function saveImages($post_attachments, $conn){
     $imagePaths = [];
-    $sql = "SELECT 'auto_increment' FROM INFORMATION_SCHEMA.TABLES WHERE table_name = 'Posts'";
+    $sql = "SHOW TABLE STATUS LIKE 'Posts'";
     $result= $conn->query($sql);
     if(!$result){
         $pathId =  1;
