@@ -25,6 +25,9 @@ if($posts) {
         $post_attachments = $post['text'];
         addPostToDb($conn,$vk_group_id,$post_text,$post_attachments);
     }
+    header("Location: /index.php");
+    $conn->close();
+    exit();
 } else{
     die("nema postiv");
     $conn->close();
