@@ -59,8 +59,6 @@ function addPostToDb($conn,$vk_group_id,$post_text,$post_attachments){
 function saveImages($post_attachments, $conn){
     $imagePaths = [];
     foreach ($post_attachments as $attachment){
-        print_r($attachment);
-        die('test');
         if($attachment['type'] == 'photo'){
             $max_width = 0;
             $imageUrl = "";
@@ -72,6 +70,7 @@ function saveImages($post_attachments, $conn){
             }
             $pathId = $conn->insert_id+1;
             $imgPath = 'images/posts/post'.$pathId.'/'.$imageName;
+            die($imgPath);
             if(!file_put_contents($imgPath, file_get_contents($imageUrl))){
                 return false;
             }else{
