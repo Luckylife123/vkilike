@@ -75,7 +75,6 @@ function saveImages($post_attachments, $conn){
             }
             $imgPath .= '/'.$imageName;
             if(!file_put_contents($imgPath, file_get_contents($imageUrl))){
-                die($imgPath);
                 return false;
             }else{
                 array_push($imagePaths, $imgPath);

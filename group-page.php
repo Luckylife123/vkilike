@@ -18,7 +18,9 @@ if ($result->num_rows > 0) {
 	            </form>
             </div>
             <div>
-                <?php echo $row['post_images'];?>
+                <?php foreach ($row['post_images'] as $imagePath){
+                	echo '<img href="/'.$imagePath.'">';
+                };?>
             </div>
 	        <div>
 		        <form action="edit-time.php" method="get">
