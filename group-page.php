@@ -19,7 +19,7 @@ if ($result->num_rows > 0) {
             </div>
             <div>
                 <?php foreach (json_decode($row['post_images']) as $imagePath){
-                	echo '<img href="/'.$imagePath.'">';
+                	echo '<img src="/'.$imagePath.'">';
                 }
                 ?>
             </div>
