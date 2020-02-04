@@ -68,13 +68,13 @@ function saveImages($post_attachments, $conn){
                     $imageName = basename($imageUrl);
                 }
             }
-            $sql = "SELECT IDENT_CURRENT('Posts')";
+            $sql = "SELECT MAX(id) FROM Posts";
             if(!$conn->query($sql)){
                 $pathId =  1;
             }
             else{
                 $pathId = $conn->query($sql) + 1;
-            }            
+            }
             $imgPath = 'images/posts/post'.$pathId;
             if (!file_exists($imgPath)) {
                 mkdir($imgPath, 0777, true);
