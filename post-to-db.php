@@ -23,7 +23,7 @@ if($posts) {
     foreach ($posts as $post){
         $post_text = $post['text'];
         $post_attachments = $post['text'];
-        addPostToDb($posts,$vk_group_id,$post_text,$post_attachments);
+        addPostToDb($conn,$vk_group_id,$post_text,$post_attachments);
     }
 } else{
     die("nema postiv");
