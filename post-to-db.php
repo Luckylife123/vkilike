@@ -22,7 +22,7 @@ $added = false;
 if($posts) {
     foreach ($posts as $post){
         $post_text = trim($post['text']);
-        $post_attachments = $post['text'];
+        $post_attachments = $post['attachments'];
         addPostToDb($conn,$vk_group_id,$post_text,$post_attachments);
     }
     header("Location: /index.php");
@@ -34,14 +34,20 @@ if($posts) {
 }
 
 
+
 function addPostToDb($conn,$vk_group_id,$post_text,$post_attachments){
     $time_for_post = getTimeForPost($vk_group_id, $conn);
+    $imagesPaths = saveImages($post_attachments, $conn);
+    if(empty($imagesPaths)){
+        die('error images paths');
+    }
+    $post_attachments_paths = json_encode($imagesPaths);
     $sql = "INSERT INTO Posts (vk_group_id, post_text, post_images, time_for_post) VALUES ('"
         . $vk_group_id
         . "','"
         . $post_text
         . "','"
-        . $post_attachments
+        . $post_attachments_paths
         . "','"
         . $time_for_post . "')";
     if ($conn->query($sql) != true) {
@@ -49,6 +55,31 @@ function addPostToDb($conn,$vk_group_id,$post_text,$post_attachments){
             $conn->close();
     }
 }
+
+function saveImages($post_attachments, $conn){
+    $imagePaths = [];
+    foreach ($post_attachments as $attachment){
+        if($attachment['type'] == 'photo'){
+            $max_width = 0;
+            $imageUrl = "";
+            foreach ($attachment['photo']['sizes'] as $size){
+                if($max_width < $size['width']){
+                    $imageUrl = $size['url'];
+                    $imageName = basename($imageUrl);
+                }
+            }
+            $pathId = $conn->mysql_insert_id()+1;
+            $imgPath = 'images/posts/post'.$pathId.'/'.$imageName;
+            if(!file_put_contents($imgPath, file_get_contents($imageUrl))){
+                return false;
+            }else{
+                array_push($imagePaths, $imgPath);
+            }
+        }
+    }
+    return $imagePaths;
+}
+
 function getTimeForPost($vk_group_id, $conn){
     $time_group_for_post = getGroupTimeForPost($vk_group_id, $conn);
     $sql = "SELECT time_for_post FROM Posts WHERE vk_group_id = '".$vk_group_id."' ORDER BY time_for_post DESC";
