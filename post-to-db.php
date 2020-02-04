@@ -68,12 +68,12 @@ function saveImages($post_attachments, $conn){
                     $imageName = basename($imageUrl);
                 }
             }
-            $sql = "SELECT MAX(id) FROM Posts";
+            $sql = "SELECT 'auto_increment' FROM INFORMATION_SCHEMA.TABLES WHERE table_name = 'Posts'";
             if(!$conn->query($sql)){
                 $pathId =  1;
             }
             else{
-                $pathId = $conn->query($sql) + 1;
+                $pathId = $conn->query($sql);
             }
             $imgPath = 'images/posts/post'.$pathId;
             if (!file_exists($imgPath)) {
