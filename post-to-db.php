@@ -58,6 +58,15 @@ function addPostToDb($conn,$vk_group_id,$post_text,$post_attachments){
 
 function saveImages($post_attachments, $conn){
     $imagePaths = [];
+    $sql = "SELECT 'auto_increment' FROM INFORMATION_SCHEMA.TABLES WHERE table_name = 'Posts'";
+    $result= $conn->query($sql);
+    if($result){
+        $pathId =  1;
+    }
+    else{
+        $row = $result->fetch_assoc();
+        $pathId = $row['Auto_increment'];
+    }
     foreach ($post_attachments as $attachment){
         if($attachment['type'] == 'photo'){
             $max_width = 0;
@@ -67,14 +76,6 @@ function saveImages($post_attachments, $conn){
                     $imageUrl = $size['url'];
                     $imageName = basename($imageUrl);
                 }
-            }
-            $sql = "SELECT 'auto_increment' FROM INFORMATION_SCHEMA.TABLES WHERE table_name = 'Posts'";
-            if(!$conn->query($sql)){
-                $pathId =  1;
-            }
-            else{
-                die($conn->query($sql));
-                $pathId = $conn->query($sql);
             }
             $imgPath = 'images/posts/post'.$pathId;
             if (!file_exists($imgPath)) {
