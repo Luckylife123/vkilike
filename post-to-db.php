@@ -37,7 +37,8 @@ if($posts) {
 
 function addPostToDb($conn,$vk_group_id,$post_text,$post_attachments){
     $time_for_post = getTimeForPost($vk_group_id, $conn);
-    $imagesPaths = saveImages($post_attachments, $conn);
+    $pathId = getPathId($conn);
+    $imagesPaths = saveImages($post_attachments, $pathId);
     if(empty($imagesPaths)){
         die('error images paths');
     }
@@ -56,17 +57,8 @@ function addPostToDb($conn,$vk_group_id,$post_text,$post_attachments){
     }
 }
 
-function saveImages($post_attachments, $conn){
+function saveImages($post_attachments, $pathId){
     $imagePaths = [];
-    $sql = "SHOW TABLE STATUS LIKE 'Posts'";
-    $result= $conn->query($sql);
-    if(!$result){
-        $pathId =  1;
-    }
-    else{
-        $row = $result->fetch_assoc();
-        $pathId = $row['Auto_increment'];
-    }
     foreach ($post_attachments as $attachment){
         if($attachment['type'] == 'photo'){
             $max_width = 0;
@@ -90,6 +82,19 @@ function saveImages($post_attachments, $conn){
         }
     }
     return $imagePaths;
+}
+
+function getPathId($conn){
+    $sql = "SHOW TABLE STATUS LIKE 'Posts'";
+    $result= $conn->query($sql);
+    if(!$result){
+        $pathId =  1;
+    }
+    else{
+        $row = $result->fetch_assoc();
+        $pathId = $row['Auto_increment'];
+    }
+    return $pathId;
 }
 
 function getTimeForPost($vk_group_id, $conn){

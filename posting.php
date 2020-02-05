@@ -27,6 +27,7 @@ class Posting
             'owner_id' => '-' . $groupId,
             'message' => $text,
         ]);
+        return $result;
     }
 
     public function getFilteredPosts(
