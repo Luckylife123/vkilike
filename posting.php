@@ -31,8 +31,6 @@ class Posting
         if(!isset($upload_url)){
             die('upload server not found');
         }
-        print_r($attachments);
-        die($attachments.'test');
         $attachments = json_decode($attachments);
         $attachments_codes = $this->uploadToVk($attachments, $upload_url);
         $result = $this->vkApiClient->wall()->post($this->access_token, [
