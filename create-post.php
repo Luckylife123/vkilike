@@ -15,11 +15,12 @@ if ($result->num_rows > 0) {
         $post_attachments = $row['post_images'];
         $group_code = getGroupCode($conn, $vk_group_id);
         $posting = new Posting($access_token);
-        $posting->addPost($group_code, $post_text, $post_attachments);
         posted($conn, $post_id);
+        $posting->addPost($group_code, $post_text, $post_attachments);
     }
 }
 $conn->close();
+
 function getFirstAccessKey($conn)
 {
     $sql = "SELECT access_tokens FROM Access_Tokens";
