@@ -5,10 +5,10 @@ $post_id = $_GET['post-id'];
 $sql = "Select * FROM Posts WHERE id = '".$post_id."'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
-   $vk_group_id = $row['vk-group-id'];
-   $post_text = $row['post-text'];
    $access_token = getFirstAccessKey($conn);
    $row = $result->fetch_assoc();
+   $vk_group_id = $row['vk-group-id'];
+   $post_text = $row['post-text'];
    $posting = new Posting($access_token);
    $posting->addPost($vk_group_id,$post_text);
    header("Location: /group-page.php?vk-group-id=".$vk_group_id);
