@@ -4,7 +4,7 @@
 $now = new DateTime();
 $access_token = getFirstAccessKey($conn);
 $post_time = $now->format('Y-m-d H:i:s');
-$sql = "Select * FROM Posts WHERE is_posted = '0'";
+$sql = "Select * FROM Posts WHERE is_posted = '0' AND time_for_post <= '". $post_time."'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
