@@ -10,7 +10,6 @@ if ($result->num_rows > 0) {
    $vk_group_id = $row['vk_group_id'];
    $post_text = $row['post_text'];
    $group_code = getGroupCede($conn,$vk_group_id);
-   die($group_code);
    $posting = new Posting($access_token);
    $posting->addPost($vk_group_id,$post_text);
    header("Location: /group-page.php?vk-group-id=".$vk_group_id);
