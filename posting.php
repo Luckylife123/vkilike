@@ -28,8 +28,10 @@ class Posting
         if(!isset($upload_url)){
             die('upload server not found');
         }
-        $attachments = json_decode($attachments);
         $attachments_codes = $this->uploadToVk($attachments, $upload_url);
+        $loaded_photos = $this->saveWallPost($attachments_codes,$groupId);
+        print_r($loaded_photos);
+        die($loaded_photos);
         $result = $this->vkApiClient->wall()->post($this->access_token, [
             'owner_id' => '-' . $groupId,
             'message' => $text,
@@ -37,16 +39,25 @@ class Posting
         return $result;
     }
 
+    public function saveWallPost($attachments_codes, $group_id){
+        $loaded_photos = [];
+        foreach ($attachments_codes as $attachment_code){
+            $result = $this->vkApiClient->photos()->saveWallPhoto($this->access_token,[
+                "group_id" =>  $group_id,
+                "photo" => $attachment_code['photo'],
+                "server" => $attachment_code['server'],
+                "hash" => $attachment_code['hash']
+            ]);
+            array_push($load_photos, $result);
+        }
+        return $loaded_photos;
+
+    }
+
     public function uploadToVk($attachments,$upload_url){
         $attachments_codes = [];
         foreach ($attachments as $attachment){
-            $result = $this->vkApiClient->getRequest()->upload($upload_url,'photo',$attachment);
-            print_r($result['photo']);
-            die($attachment);
-
-            //            array_push($attachments_codes, json_decode($this->curlHttpClient->post($upload_url,[
-//                'photo' => $attachment
-//            ])));
+            array_push($attachments_codes, $this->vkApiClient->getRequest()->upload($upload_url,'photo',$attachment));
         }
         return $attachments_codes;
     }
