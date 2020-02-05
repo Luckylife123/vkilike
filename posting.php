@@ -24,7 +24,7 @@ class Posting
     public function addPost($groupId, $text, $attachments)
     {
         $upload_url = $this->getUploadServer($groupId);
-        if(isset($upload_url)){
+        if(!isset($upload_url)){
             die('upload server not found');
         }
         $attachments = json_decode($attachments);
