@@ -29,6 +29,7 @@ class Posting
         }
         $attachments = json_decode($attachments);
         $attachments_codes = $this->uploadToVk($attachments, $upload_url);
+        print_r($attachments_codes);
         die($attachments_codes);
         $result = $this->vkApiClient->wall()->post($this->access_token, [
             'owner_id' => '-' . $groupId,
