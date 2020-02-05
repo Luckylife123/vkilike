@@ -44,6 +44,7 @@ class Posting
         $photos = "";
         foreach ($loaded_photos as $photo){
             $photos .= "photo" . $photo['owner_id'] . "_" . $photo['id'] . ",";
+            die($photos);
         }
         return $photos;
     }
