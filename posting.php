@@ -54,7 +54,8 @@ class Posting
             'group_id' => $groupId
         ]);
         $upload_url = $result['response']['upload_url'];
-        die($result.$upload_url);
+        print_r($result);
+        die($upload_url);
         return $upload_url;
     }
 
