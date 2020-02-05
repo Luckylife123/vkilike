@@ -54,7 +54,6 @@ class Posting
         ]);
         print_r($result);
         die($result['upload_url']);
-        $upload_url = ;
         return $upload_url;
     }
 
