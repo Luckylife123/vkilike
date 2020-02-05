@@ -24,7 +24,7 @@ class Posting
     public function addPost($groupId, $text, $attachments)
     {
         $upload_url = $this->getUploadServer($groupId);
-        if(empty($upload_url)){
+        if(isset($upload_url)){
             die('upload server not found');
         }
         $attachments = json_decode($attachments);
@@ -53,7 +53,8 @@ class Posting
         $result = $this->vkApiClient->photos()->getWallUploadServer($this->access_token,[
             'group_id' => $groupId
         ]);
-        $upload_url = $result['respons']['upload_url'];
+        $upload_url = $result->response->upload_url;
+        die($upload_url);
         return $upload_url;
     }
 
