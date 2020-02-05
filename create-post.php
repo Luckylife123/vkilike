@@ -9,7 +9,10 @@ if ($result->num_rows > 0) {
    $row = $result->fetch_assoc();
    $vk_group_id = $row['vk_group_id'];
    $post_text = $row['post_text'];
-   die($vk_group_id);
+   $sql = "Select * FROM Vk_Groups WHERE id = '".$vk_group_id."'";
+   $result = $conn->query($sql);
+   $row = $result->fetch_assoc();
+   $group_code = $row['group_code'];
    $posting = new Posting($access_token);
    $posting->addPost($vk_group_id,$post_text);
    header("Location: /group-page.php?vk-group-id=".$vk_group_id);
