@@ -9,7 +9,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $time_for_post = $row['time_for_post'];
-        die($time_for_post <= $post_time);
+        $vk_group_id = $row['vk_group_id'];
         $post_id = $row['post_id'];
         $post_text = $row['post_text'];
         $post_attachments = $row['post_images'];
