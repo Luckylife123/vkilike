@@ -31,7 +31,7 @@ function getFirstAccessKey($conn)
 }
 
 function posted($conn, $post_id){
-    $sql = "UPDATE Posts SET is_posted= '1' WHERE id = '".$post_id."'";
+    $sql = "UPDATE Posts SET is_posted = '1' WHERE id = '".$post_id."'";
     $conn->query($sql);
 }
 
