@@ -44,7 +44,7 @@ class Posting
         $attachments_codes = [];
         foreach ($attachments as $attachment){
             $result = $this->curlHttpClient->post($upload_url,[
-                'photo' => $attachment
+                'photo' => 'http://vk-posts.tmweb.ru/'.$attachment
             ]);
             print_r($result);
             die($attachment);
