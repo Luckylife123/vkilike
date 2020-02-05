@@ -9,7 +9,7 @@ if ($result->num_rows > 0) {
    $row = $result->fetch_assoc();
    $vk_group_id = $row['vk_group_id'];
    $post_text = $row['post_text'];
-   $post_attachments = $row['post_attachments'];
+   $post_attachments = $row['post_images'];
    $group_code = getGroupCede($conn,$vk_group_id);
    $posting = new Posting($access_token);
    $posting->addPost($group_code,$post_text,$post_attachments);
