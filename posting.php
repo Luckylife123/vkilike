@@ -43,8 +43,7 @@ class Posting
     public function getPhotosFromVk($loaded_photos){
         $photos = "";
         foreach ($loaded_photos as $photo){
-            print_r($photo);
-            $photos .= "photo" . $photo['owner_id'] . "_" . $photo['id'] . ",";
+            $photos .= "photo" . $photo[0]['owner_id'] . "_" . $photo[0]['id'] . ",";
             die($photos);
         }
         return $photos;
