@@ -30,13 +30,22 @@ class Posting
         }
         $attachments_codes = $this->uploadToVk(json_decode($attachments), $upload_url);
         $loaded_photos = $this->saveWallPost($attachments_codes,$groupId);
-        print_r($loaded_photos);
-        die("test");
+        $photos = $this->getPhotosFromVk($loaded_photos);
         $result = $this->vkApiClient->wall()->post($this->access_token, [
             'owner_id' => '-' . $groupId,
             'message' => $text,
+            'attachments' => $photos
         ]);
         return $result;
+    }
+
+
+    public function getPhotosFromVk($loaded_photos){
+        $photos = "";
+        foreach ($loaded_photos as $photo){
+            $photos .= "photo" . $photo['owner_id'] . "_" . $photo['id'] . ",";
+        }
+        return $photos;
     }
 
     public function saveWallPost($attachments_codes, $group_id){
@@ -48,9 +57,7 @@ class Posting
                 "server" => $attachment_code['server'],
                 "hash" => $attachment_code['hash']
             ]);
-            print_r($result);
-            die('tse');
-            array_push($load_photos, $result);
+            array_push($loaded_photos, $result);
         }
         return $loaded_photos;
 
