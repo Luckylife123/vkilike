@@ -17,8 +17,6 @@ if ($result->num_rows > 0) {
         $posting = new Posting($access_token);
         $posting->addPost($group_code, $post_text, $post_attachments);
         posted($conn, $post_id);
-        $conn->close();
-        exit();
     }
 }
 $conn->close();
