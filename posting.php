@@ -28,10 +28,8 @@ class Posting
         if(!isset($upload_url)){
             die('upload server not found');
         }
-        print_r($attachments);
-        die("tsetaatsdg");
         $attachments_codes = $this->uploadToVk($attachments, $upload_url);
-        print_r($attachments_codes);;
+        print_r($attachments_codes);
         $loaded_photos = $this->saveWallPost($attachments_codes,$groupId);
         print_r($loaded_photos);
         die($loaded_photos);
@@ -62,7 +60,7 @@ class Posting
         foreach ($attachments as $attachment){
             print_r($this->vkApiClient->getRequest()->upload($upload_url,'photo',$attachment));
             print_r($attachment);
-            die("test");
+            die("test123");
             array_push($attachments_codes, $this->vkApiClient->getRequest()->upload($upload_url,'photo',$attachment));
         }
         return $attachments_codes;
