@@ -4,7 +4,6 @@
 $now = new DateTime();
 $access_token = getFirstAccessKey($conn);
 $post_time = $now->format('Y-m-d H:i:s');
-die($post_time);
 $sql = "Select * FROM Posts WHERE is_posted = '0'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
