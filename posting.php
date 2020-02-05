@@ -2,7 +2,6 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 use VK\Client\VKApiClient;
-use VK\TransportClient\Curl\CurlHttpClient;
 
 class Posting
 {
@@ -16,13 +15,11 @@ class Posting
 
     private $vkApiClient;
 
-    private  $curlHttpClient;
 
     function __construct($access_token)
     {
         $this->vkApiClient = new VKApiClient();
         $this->access_token = $access_token;
-        $this->curlHttpClient = new CurlHttpClient(10);
     }
 
     public function addPost($groupId, $text, $attachments)
@@ -43,8 +40,8 @@ class Posting
     public function uploadToVk($attachments,$upload_url){
         $attachments_codes = [];
         foreach ($attachments as $attachment){
-            $result = $this->curlHttpClient->upload($upload_url,'photo',$attachment);
-            print_r($result);
+            $result = $this->vkApiClient->getRequest()->upload($upload_url,'photo',$attachment);
+            print_r($result->photo);
             die($attachment);
 
             //            array_push($attachments_codes, json_decode($this->curlHttpClient->post($upload_url,[
