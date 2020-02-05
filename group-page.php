@@ -36,10 +36,6 @@ if ($result->num_rows > 0) {
 		        <input type="text" name="vk-group-id" value="<?php echo $vk_group_id?>" hidden>
 		        <button type="submit">Видалити пост</button>
 	        </form>
-	        <form action="create-post.php" method="get">
-		        <input type="text" name="post-id" hidden value="<?php echo $row['id']; ?>">
-		        <button type="submit">Опублікувати пост</button>
-	        </form>
         </div>
 
     <?php endwhile;
