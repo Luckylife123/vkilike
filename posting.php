@@ -57,6 +57,7 @@ class Posting
 
     public function uploadToVk($attachments,$upload_url){
         $attachments_codes = [];
+        die("123");
         foreach ($attachments as $attachment){
             print_r($this->vkApiClient->getRequest()->upload($upload_url,'photo',$attachment));
             print_r($attachment);
