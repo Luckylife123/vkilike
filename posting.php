@@ -53,7 +53,7 @@ class Posting
         $result = $this->vkApiClient->photos()->getWallUploadServer($this->access_token,[
             'group_id' => $groupId
         ]);
-        $upload_url = $result->response->upload_url;
+        $upload_url = $result['respons']['upload_url'];
         return $upload_url;
     }
 
