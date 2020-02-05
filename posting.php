@@ -41,7 +41,7 @@ class Posting
         $attachments_codes = [];
         foreach ($attachments as $attachment){
             $result = $this->vkApiClient->getRequest()->upload($upload_url,'photo',$attachment);
-            print_r($result);
+            print_r($result['photo']);
             die($attachment);
 
             //            array_push($attachments_codes, json_decode($this->curlHttpClient->post($upload_url,[
