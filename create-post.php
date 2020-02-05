@@ -11,7 +11,7 @@ if ($result->num_rows > 0) {
    $post_text = $row['post_text'];
    $group_code = getGroupCede($conn,$vk_group_id);
    $posting = new Posting($access_token);
-   $posting->addPost($group_code,$post_text);
+   $posting->addPost($group_code,$post_text); 
    header("Location: /group-page.php?vk-group-id=".$vk_group_id);
    $conn->close();
    exit();
