@@ -46,7 +46,7 @@ class Posting
             $result = $this->curlHttpClient->post($upload_url,[
                 'photo' => 'http://vk-posts.tmweb.ru/'.$attachment
             ]);
-            print_r(json_decode($result));
+            print_r($result);
             die($attachment);
 
             //            array_push($attachments_codes, json_decode($this->curlHttpClient->post($upload_url,[
