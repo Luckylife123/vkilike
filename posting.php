@@ -29,9 +29,9 @@ class Posting
             die('upload server not found');
         }
         $attachments_codes = $this->uploadToVk(json_decode($attachments), $upload_url);
-        print_r($attachments_codes);
-        die("tes");
         $loaded_photos = $this->saveWallPost($attachments_codes,$groupId);
+        print_r($loaded_photos);
+        die("test");
         $result = $this->vkApiClient->wall()->post($this->access_token, [
             'owner_id' => '-' . $groupId,
             'message' => $text,
@@ -57,7 +57,6 @@ class Posting
     public function uploadToVk($attachments,$upload_url){
         $attachments_codes = [];
         foreach ($attachments as $attachment){
-            echo $attachment;
             array_push($attachments_codes, $this->vkApiClient->getRequest()->upload($upload_url,'photo',$attachment));
         }
         return $attachments_codes;
