@@ -2,7 +2,6 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 use VK\Client\VKApiClient;
-use VK\Actions\Photos;
 
 class Posting
 {
@@ -29,8 +28,8 @@ class Posting
             die('upload server not found');
         }
         $attachments = json_decode($attachments);
-        die($attachments);
         $attachments_codes = $this->uploadToVk($attachments, $upload_url);
+        die($attachments_codes);
         $result = $this->vkApiClient->wall()->post($this->access_token, [
             'owner_id' => '-' . $groupId,
             'message' => $text,
@@ -53,7 +52,6 @@ class Posting
         $result = $this->vkApiClient->photos()->getWallUploadServer($this->access_token,[
             'group_id' => $groupId
         ]);
-        die($result);
         $upload_url = $result->response->upload_url;
         return $upload_url;
     }
