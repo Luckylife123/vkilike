@@ -42,8 +42,6 @@ class Posting
 
     public function uploadToVk($attachments,$upload_url){
         $attachments_codes = [];
-        print_r($attachments);
-        die($attachments);
         foreach ($attachments as $attachment){
             $result = $this->curlHttpClient->post($upload_url,[
                 'photo' => $attachment
