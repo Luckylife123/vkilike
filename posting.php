@@ -29,10 +29,7 @@ class Posting
             die('upload server not found');
         }
         $attachments_codes = $this->uploadToVk($attachments, $upload_url);
-        print_r($attachments_codes);
         $loaded_photos = $this->saveWallPost($attachments_codes,$groupId);
-        print_r($loaded_photos);
-        die($loaded_photos);
         $result = $this->vkApiClient->wall()->post($this->access_token, [
             'owner_id' => '-' . $groupId,
             'message' => $text,
