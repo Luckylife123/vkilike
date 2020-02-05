@@ -10,13 +10,14 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $time_for_post = $row['time_for_post'];
         $vk_group_id = $row['vk_group_id'];
-        $post_id = $row['post_id'];
+        $post_id = $row['id'];
         $post_text = $row['post_text'];
         $post_attachments = $row['post_images'];
         $group_code = getGroupCode($conn, $vk_group_id);
         $posting = new Posting($access_token);
-        posted($conn, $post_id);
         $posting->addPost($group_code, $post_text, $post_attachments);
+        posted($conn, $post_id);
+
     }
 }
 $conn->close();
