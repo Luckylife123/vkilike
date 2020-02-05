@@ -53,8 +53,8 @@ class Posting
             'group_id' => $groupId
         ]);
         print_r($result);
-        die($result);
-        $upload_url = $result['upload_uri'];
+        die($result['upload_url']);
+        $upload_url = ;
         return $upload_url;
     }
 
