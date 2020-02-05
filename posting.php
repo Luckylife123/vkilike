@@ -2,6 +2,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 use VK\Client\VKApiClient;
+use VK\Actions\Photos;
 
 class Posting
 {
@@ -21,13 +22,39 @@ class Posting
         $this->access_token = $access_token;
     }
 
-    public function addPost($groupId, $text)
+    public function addPost($groupId, $text, $attachments)
     {
+        $upload_url = $this->getUploadService($groupId);
+        if(empty($upload_url)){
+            die('upload server not found');
+        }
+        $attachments = json_decode($attachments);
+        die($attachments);
+        $attachments_codes = $this->uploadToVk($attachments, $upload_url);
         $result = $this->vkApiClient->wall()->post($this->access_token, [
             'owner_id' => '-' . $groupId,
             'message' => $text,
         ]);
         return $result;
+    }
+
+    public function uploadToVk($attachments,$upload_url){
+        $attachments_codes = [];
+        $vkRequest = $this->vkApiClient->getRequest();
+        foreach ($attachments as $attachment){
+            array_push($attachments_codes, json_decode($vkRequest->post($upload_url,[
+                'photo' => $attachment
+            ])));
+        }
+        return $attachments_codes;
+    }
+
+    public function getUploadService($groupId){
+        $result = $this->vkApiClient->photos()->getWallUploadServer($this->access_token,[
+            'group_id' => $groupId
+        ]);
+        $upload_url = $result->response->upload_url;
+        return $upload_url;
     }
 
     public function getFilteredPosts(

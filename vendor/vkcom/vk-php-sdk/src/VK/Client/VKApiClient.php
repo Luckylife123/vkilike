@@ -224,19 +224,19 @@ class VKApiClient {
     private $widgets;
 
     /**
+     * @return VKApiRequest
+     */
+    public function getRequest(): VKApiRequest {
+        return $this->request;
+    }
+
+    /**
      * VKApiClient constructor.
      * @param string $api_version
      * @param string|null $language
      */
     public function __construct(string $api_version = self::API_VERSION, ?string $language = null) {
         $this->request = new VKApiRequest($api_version, $language, self::API_HOST);
-    }
-
-    /**
-     * @return VKApiRequest
-     */
-    public function getRequest(): VKApiRequest {
-        return $this->request;
     }
 
     /**
