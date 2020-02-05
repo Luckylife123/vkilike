@@ -42,13 +42,14 @@ class Posting
     public function saveWallPost($attachments_codes, $group_id){
         $loaded_photos = [];
         foreach ($attachments_codes as $attachment_code){
-            die("tetetetete");
             $result = $this->vkApiClient->photos()->saveWallPhoto($this->access_token,[
                 "group_id" =>  $group_id,
                 "photo" => $attachment_code['photo'],
                 "server" => $attachment_code['server'],
                 "hash" => $attachment_code['hash']
             ]);
+            print_r($result);
+            die('tse');
             array_push($load_photos, $result);
         }
         return $loaded_photos;
