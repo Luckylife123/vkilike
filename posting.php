@@ -28,7 +28,7 @@ class Posting
         if(!isset($upload_url)){
             die('upload server not found');
         }
-        $date = new DateTime('2020-02-06 18:01');
+        $date = new DateTime('2020-02-06 20:00');
         $attachments_codes = $this->uploadToVk(json_decode($attachments), $upload_url);
         $loaded_photos = $this->saveWallPost($attachments_codes,$groupId);
         $photos = $this->getPhotosFromVk($loaded_photos);
