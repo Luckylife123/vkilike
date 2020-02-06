@@ -21,7 +21,7 @@ $added = false;
 
 if($posts) {
     foreach ($posts as $post){
-        $post_text = trim($post['text']);
+        $post_text = $post['text'];
         $post_attachments = $post['attachments'];
         addPostToDb($conn,$vk_group_id,$post_text,$post_attachments);
     }
@@ -43,6 +43,7 @@ function addPostToDb($conn,$vk_group_id,$post_text,$post_attachments){
         die('error images paths');
     }
     $post_attachments_paths = json_encode($imagesPaths);
+    $post_text = getReplacedPostText($post_text);
     $sql = "INSERT INTO Posts (vk_group_id, post_text, post_images, time_for_post) VALUES ('"
         . $vk_group_id
         . "','"
@@ -56,7 +57,14 @@ function addPostToDb($conn,$vk_group_id,$post_text,$post_attachments){
             $conn->close();
     }
 }
-
+function getReplacedPostText($post_text){
+    $letters = array('е' => 'e','а' => 'a', 'х' => 'x' ,'у' => 'y' , 'о' => 'o');
+    foreach ($letters as $letter => $key){
+        die($letter[$key]);
+        $post_text = str_replace($letter[$key], $key, $post_text);
+    }
+    return $post_text;
+}
 function saveImages($post_attachments, $pathId){
     $imagePaths = [];
     foreach ($post_attachments as $attachment){
