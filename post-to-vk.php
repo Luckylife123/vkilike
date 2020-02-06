@@ -26,7 +26,7 @@ $posts = $posting->getFilteredPosts($group_id_for_get_post, $count, $offset,$pho
 
 if($posts) {
     foreach ($posts as $post){
-        deleteSavedAttachments('images/posts/post100');
+        deleteSavedAttachments();
         $post_text = getReplacedPostText($post['text']);
         $post_attachments = getSavedAttachments($post['attachments']);
         $posting->addPost($group_id_for_posting, $post_text, $post_attachments, $time_for_post->getTimestamp());
@@ -66,22 +66,19 @@ function getSavedAttachments($post_attachments){
     return $imagePaths;
 }
 
-function deleteSavedAttachments($dirPath){
-    if (!is_dir($dirPath)) {
-        throw new InvalidArgumentException("$dirPath must be a directory");
-    }
-    if (substr($dirPath, strlen($dirPath) - 1, 1) != '/') {
-        $dirPath .= '/';
-    }
-    $files = glob($dirPath . '*', GLOB_MARK);
-    foreach ($files as $file) {
-        if (is_dir($file)) {
-            self::deleteDir($file);
+function deleteSavedAttachments(){
+    $dir = 'images'. DIRECTORY_SEPARATOR . 'posts'. DIRECTORY_SEPARATOR .'post100';
+    $it = new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS);
+    $files = new RecursiveIteratorIterator($it,
+        RecursiveIteratorIterator::CHILD_FIRST);
+    foreach($files as $file) {
+        if ($file->isDir()){
+            rmdir($file->getRealPath());
         } else {
-            unlink($file);
+            unlink($file->getRealPath());
         }
     }
-    rmdir($dirPath);
+    rmdir($dir);
 }
 
 function getReplacedPostText($post_text){
