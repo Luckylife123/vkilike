@@ -67,7 +67,7 @@ function getSavedAttachments($post_attachments){
 }
 
 function deleteSavedAttachments($dirPath){
-    if (! is_dir($dirPath)) {
+    if (!is_dir($dirPath)) {
         throw new InvalidArgumentException("$dirPath must be a directory");
     }
     if (substr($dirPath, strlen($dirPath) - 1, 1) != '/') {
