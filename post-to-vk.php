@@ -67,7 +67,7 @@ function getSavedAttachments($post_attachments){
 }
 
 function deleteSavedAttachments(){
-    $dir = 'images'. DIRECTORY_SEPARATOR . 'posts'. DIRECTORY_SEPARATOR .'post100';
+    $dir = 'images'. DIRECTORY_SEPARATOR . 'posts'. DIRECTORY_SEPARATOR .'post';
     if(is_dir($dir)){
         $it = new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS);
         $files = new RecursiveIteratorIterator($it,
