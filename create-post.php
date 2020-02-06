@@ -1,7 +1,7 @@
 <?php include_once('connect-to-db.php'); ?>
 <?php include_once('posting.php'); ?>
 <?php
-$now = new DateTime(new DateTimeZone('Europe/Kiev'));
+$now = new DateTime('now',new DateTimeZone('Europe/Kiev'));
 $access_token = getFirstAccessKey($conn);
 $post_time = $now->format('Y-m-d H:i:s');
 $sql = "Select * FROM Posts WHERE is_posted = '0' AND time_for_post <= '". $post_time."'";
