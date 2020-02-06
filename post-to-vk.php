@@ -67,7 +67,12 @@ function getSavedAttachments($post_attachments){
 }
 
 function deleteSavedAttachments($path){
-        rmdir($path);
+    if (is_file($path)) return unlink($path);
+    if (is_dir($path)) {
+        foreach(scandir($path) as $p) if (($p!='.') && ($p!='..'))
+            rmRec($path.DIRECTORY_SEPARATOR.$p);
+        return rmdir($path);
+    }
 }
 
 function getReplacedPostText($post_text){
