@@ -30,7 +30,6 @@ class Posting
         $attachments_codes = $this->uploadToVk($attachments, $upload_url);
         $loaded_photos = $this->saveWallPost($attachments_codes, $groupId);
         $photos = $this->getPhotosFromVk($loaded_photos);
-        sleep(1);
         $result = $this->vkApiClient->wall()->post($this->access_token, [
             'owner_id' => '-' . $groupId,
             'message' => $text,
@@ -56,7 +55,6 @@ class Posting
     {
         $loaded_photos = [];
         foreach ($attachments_codes as $attachment_code) {
-            sleep(1);
             $result = $this->vkApiClient->photos()->saveWallPhoto($this->access_token, [
                 "group_id" => $group_id,
                 "photo" => $attachment_code['photo'],
@@ -64,6 +62,7 @@ class Posting
                 "hash" => $attachment_code['hash'],
             ]);
             array_push($loaded_photos, $result);
+            sleep(1);
         }
 
         return $loaded_photos;
@@ -73,9 +72,9 @@ class Posting
     {
         $attachments_codes = [];
         foreach ($attachments as $attachment) {
-            sleep(1);
             array_push($attachments_codes, $this->vkApiClient->getRequest()
                 ->upload($upload_url, 'photo', '/home/c/cr27008/vkposts/public_html/'.$attachment));
+            sleep(1);
         }
 
         return $attachments_codes;

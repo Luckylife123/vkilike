@@ -34,8 +34,8 @@ if($posts) {
     header("Location: /index.php?Added_Posts=".$added_posts);
     $conn->close();
 } else{
-    die("За такими параметрами немає постів");
     $conn->close();
+    die("За такими параметрами немає постів");
 }
 
 function getSavedAttachments($post_attachments){
