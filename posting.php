@@ -28,6 +28,7 @@ class Posting
         if(!isset($upload_url)){
             die('upload server not found');
         }
+        $date = new DateTime('2020-02-06 18:00');
         $attachments_codes = $this->uploadToVk(json_decode($attachments), $upload_url);
         $loaded_photos = $this->saveWallPost($attachments_codes,$groupId);
         $photos = $this->getPhotosFromVk($loaded_photos);
@@ -35,7 +36,8 @@ class Posting
             'owner_id' => '-' . $groupId,
             'message' => $text,
             'attachments' => $photos,
-            'from_group' => 1
+            'from_group' => 1,
+            'publish_date' =>  $date->getTimestamp()
         ]);
         return $result;
     }
