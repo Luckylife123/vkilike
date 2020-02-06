@@ -36,7 +36,7 @@
 	<input type="text" name="start_time_for_post" required>
 
 	<label for="period_posts">Періодичність постів в (хв)</label>
-	<input type="text" name="period_posts" value="<?php echo date('y-m-d h:m', 'Euro/Kiev')?>" required>
+	<input type="text" name="period_posts" required>
 
 	<button type="submit">Добавити пости</button>
 </form>
