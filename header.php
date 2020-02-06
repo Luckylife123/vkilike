@@ -9,7 +9,6 @@
 form {
 	display: flex;
 	flex-direction: column;
-	max-width: 300px;
 	align-items: center;
 	margin: 10px 0;
 }
