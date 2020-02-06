@@ -1,3 +1,4 @@
+<?php include_once('header.php'); ?>
 <div class="add-posts">
 <form action="/post-to-vk.php" method="get">
 	<label for="group_id_for_posting">Ід групи для постінга</label>
@@ -40,5 +41,7 @@
 	<button type="submit">Добавити пости</button>
 </form>
 </div>
+<?php include_once('footer.php'); ?>
+
 
 

@@ -1,8 +1,6 @@
 <?php include_once('connect-to-db.php'); ?>
 <?php include_once('posting.php'); ?>
 <?php
-deleteSavedAttachments('images/posts/post1');
-die('tset');
 $access_token = getFirstAccessKey($conn);
 
 $group_id_for_posting = $_GET['group_id_for_posting'];

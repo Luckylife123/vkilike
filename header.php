@@ -10,18 +10,11 @@ form {
 	display: flex;
 	flex-direction: column;
 	max-width: 300px;
+	align-items: center;
 	margin: 10px 0;
 }
 form input{
 	margin: 10px 0;
-}
-.add-posts{
-	padding: 10px;
-	background-color: #eee;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-bottom: 10px;
 }
 
 </style>
