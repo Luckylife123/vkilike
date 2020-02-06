@@ -15,7 +15,7 @@ form {
 form input{
 	margin: 10px 0;
 }
-.active-groups{
+.add-posts{
 	padding: 10px;
 	background-color: #eee;
 	display: flex;
@@ -23,19 +23,6 @@ form input{
 	align-items: center;
 	margin-bottom: 10px;
 }
-.vk-post{
-	padding: 10px 0;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	background-color: #eee;
-	margin-bottom: 10px;
-}
-.vk-post img{
-	width: 200px;
-	height: auto;
-	display: inline-block;
-	margin-right: 10px;
-}
+
 </style>
 

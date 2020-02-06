@@ -15,95 +15,102 @@ class Posting
 
     private $vkApiClient;
 
-
     function __construct($access_token)
     {
         $this->vkApiClient = new VKApiClient();
         $this->access_token = $access_token;
     }
 
-    public function addPost($groupId, $text, $attachments)
+    public function addPost($groupId, $text, $attachments, $time_for_post)
     {
         $upload_url = $this->getUploadServer($groupId);
-        if(!isset($upload_url)){
+        if (!isset($upload_url)) {
             die('upload server not found');
         }
-        $date = new DateTime('2020-02-06 20:00');
         $attachments_codes = $this->uploadToVk(json_decode($attachments), $upload_url);
-        $loaded_photos = $this->saveWallPost($attachments_codes,$groupId);
+        $loaded_photos = $this->saveWallPost($attachments_codes, $groupId);
         $photos = $this->getPhotosFromVk($loaded_photos);
         $result = $this->vkApiClient->wall()->post($this->access_token, [
             'owner_id' => '-' . $groupId,
             'message' => $text,
             'attachments' => $photos,
             'from_group' => 1,
-            'publish_date' =>  $date->getTimestamp()
+            'publish_date' => $time_for_post,
         ]);
+
         return $result;
     }
 
-
-    public function getPhotosFromVk($loaded_photos){
+    public function getPhotosFromVk($loaded_photos)
+    {
         $photos = "";
-        foreach ($loaded_photos as $photo){
+        foreach ($loaded_photos as $photo) {
             $photos .= "photo" . $photo[0]['owner_id'] . "_" . $photo[0]['id'] . ",";
         }
+
         return $photos;
     }
 
-    public function saveWallPost($attachments_codes, $group_id){
+    public function saveWallPost($attachments_codes, $group_id)
+    {
         $loaded_photos = [];
-        foreach ($attachments_codes as $attachment_code){
-            $result = $this->vkApiClient->photos()->saveWallPhoto($this->access_token,[
-                "group_id" =>  $group_id,
+        foreach ($attachments_codes as $attachment_code) {
+            $result = $this->vkApiClient->photos()->saveWallPhoto($this->access_token, [
+                "group_id" => $group_id,
                 "photo" => $attachment_code['photo'],
                 "server" => $attachment_code['server'],
-                "hash" => $attachment_code['hash']
+                "hash" => $attachment_code['hash'],
             ]);
             array_push($loaded_photos, $result);
         }
-        return $loaded_photos;
 
+        return $loaded_photos;
     }
 
-    public function uploadToVk($attachments,$upload_url){
+    public function uploadToVk($attachments, $upload_url)
+    {
         $attachments_codes = [];
-        foreach ($attachments as $attachment){
-            array_push($attachments_codes, $this->vkApiClient->getRequest()->upload($upload_url,'photo','/home/c/cr27008/vkposts/public_html/'.$attachment));
+        foreach ($attachments as $attachment) {
+            array_push($attachments_codes, $this->vkApiClient->getRequest()
+                ->upload($upload_url, 'photo', '/home/c/cr27008/vkposts/public_html/' . $attachment));
         }
+
         return $attachments_codes;
     }
 
-    public function getUploadServer($groupId){
-        $result = $this->vkApiClient->photos()->getWallUploadServer($this->access_token,[
-            'group_id' => $groupId
+    public function getUploadServer($groupId)
+    {
+        $result = $this->vkApiClient->photos()->getWallUploadServer($this->access_token, [
+            'group_id' => $groupId,
         ]);
         $upload_url = $result['upload_url'];
+
         return $upload_url;
     }
 
     public function getFilteredPosts(
         $groupId,
-        $count = 1,
-        $offset = 0,
-        $photos_in_post = 0,
-        $comments = 0,
-        $likes = 0,
-        $reposts = 0,
-        $views = 0
+        $count,
+        $offset,
+        $photos_in_post,
+        $comments,
+        $likes,
+        $reposts,
+        $views,
+        $count_text
     ) {
         $posts = $this->vkApiClient->wall()->get($this->access_token, [
             'owner_id' => '-' . $groupId,
             'count' => $count,
             'offset' => $offset,
         ]);
-        if(empty($posts)){
+        if (empty($posts)) {
             return false;
         }
         $posts = $posts['items'];
         $validatePosts = [];
         foreach ($posts as $post) {
-            $isValidatePost = $this->filterPost($post, $photos_in_post, $comments, $likes, $reposts, $views);
+            $isValidatePost = $this->filterPost($post, $photos_in_post, $comments, $likes, $reposts, $views, $count_text);
             if ($isValidatePost) {
                 array_push($validatePosts, $post);
             }
@@ -115,7 +122,7 @@ class Posting
         }
     }
 
-    public function filterPost($post, $photos_in_post, $comments, $likes, $reposts, $views)
+    public function filterPost($post, $photos_in_post, $comments, $likes, $reposts, $views, $count_text)
     {
         if ($this->isMarkedAds($post)) {
             return false;
@@ -132,17 +139,28 @@ class Posting
         if ($this->isHasLessActivity($post['reposts']['count'], $reposts)) {
             return false;
         }
-
-        if ($this->isHasLessActivity($post['views']['count'], $views)){
+        if ($this->isHasLessActivity($post['views']['count'], $views)) {
+            return false;
+        }
+        if ($this->isHasLessText($post['text'], $count_text)) {
             return false;
         }
 
         return true;
     }
 
+
+    public  function isHasLessText($post_text, $count_text){
+        if($count_text > iconv_strlen($post_text, 'UTF-8')){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     public function isHasLessActivity($activity, $minActivity)
     {
-        if(!isset($activity)){
+        if (!isset($activity)) {
             $activity = 0;
         }
         if ($activity >= $minActivity) {
@@ -178,6 +196,4 @@ class Posting
             return true;
         }
     }
-
-
 }
