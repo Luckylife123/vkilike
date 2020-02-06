@@ -24,6 +24,7 @@ $posts = $posting->getFilteredPosts($group_id_for_get_post, $count, $offset,$pho
 
 if($posts) {
     foreach ($posts as $post){
+        sleep(10);
         deleteSavedAttachments();
         $post_text = getReplacedPostText($post['text']);
         $post_attachments = getSavedAttachments($post['attachments']);
@@ -82,7 +83,7 @@ function deleteSavedAttachments(){
 }
 
 function getReplacedPostText($post_text){
-    $letters = array('е' => 'e','а' => 'a', 'х' => 'x' ,'у' => 'y' , 'о' => 'o');
+    $letters = array('е' => 'e','а' => 'a', 'х' => 'x' ,'у' => 'y' , 'о' => 'o', 'с' => 'c');
     foreach ($letters as $russian_letter => $english_letter){
         $post_text = str_replace($russian_letter, $english_letter, $post_text);
     }
