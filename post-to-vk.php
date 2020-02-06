@@ -16,7 +16,7 @@ $count_text = $_GET['count_text'];
 $period_posts = $_GET['period_posts'];
 $start_time_for_post = $_GET['start_time_for_post'];
 
-$time_for_post = new DateTime($start_time_for_post, DateTimeZone('Europe/Kiev'));
+$time_for_post = new DateTime($start_time_for_post, new DateTimeZone('Europe/Kiev'));
 
 $posting = new Posting($access_token);
 $posts = $posting->getFilteredPosts($group_id_for_get_post, $count, $offset,$photos_in_post,$comments,$likes,$reposts,$views,$count_text);
