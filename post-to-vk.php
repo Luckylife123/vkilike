@@ -67,9 +67,7 @@ function getSavedAttachments($post_attachments){
 }
 
 function deleteSavedAttachments($path){
-    if (file_exists($path)) {
         rmdir($path);
-    }
 }
 
 function getReplacedPostText($post_text){
