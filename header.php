@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-
 </head>
 <body>
 <style>
@@ -15,6 +14,14 @@ form {
 }
 form input{
 	margin: 10px 0;
+}
+.active-groups{
+	padding: 10px;
+	background-color: #eee;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 10px;
 }
 </style>
 

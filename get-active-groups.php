@@ -4,10 +4,8 @@ $sql = "SELECT id, group_code, group_name FROM Vk_Groups";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()):?>
-		<div style="padding: 10px;border: 1px solid #000;">
-            <span>
-                    <?php echo $row['group_name']; ?>
-            </span>
+		<div class="active-groups">
+            <span><?php echo $row['group_name']; ?></span>
 			<form action="/delete-group.php" method="get">
 				<input type="text" name="vk-group-id" hidden value="<?php echo $row['id']; ?>">
 				<button type="submit">Видалити группу</button>
