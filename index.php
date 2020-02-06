@@ -10,7 +10,7 @@
 	</button>
 </form>
 <?php
-$date = new DateTime('2020-02-06 18:01');
+$date = new DateTime('2020-02-06 20:00');
 echo $date->getTimestamp();
 die($date->getTimestamp());
 ?>
