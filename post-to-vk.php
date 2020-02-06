@@ -24,7 +24,6 @@ $posts = $posting->getFilteredPosts($group_id_for_get_post, $count, $offset,$pho
 
 if($posts) {
     foreach ($posts as $post){
-        sleep(5);
         deleteSavedAttachments();
         $post_text = getReplacedPostText($post['text']);
         $post_attachments = getSavedAttachments($post['attachments']);
