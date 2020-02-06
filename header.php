@@ -32,8 +32,8 @@ form input{
 	margin-bottom: 10px;
 }
 .vk-post img{
-	width: 50px;
-	height: 50px;
+	width: 200px;
+	height: auto;
 	display: inline-block;
 	margin-right: 10px;
 }
