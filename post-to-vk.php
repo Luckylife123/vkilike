@@ -73,6 +73,7 @@ function deleteSavedAttachments($path){
             rmRec($path.DIRECTORY_SEPARATOR.$p);
         return rmdir($path);
     }
+    return false;
 }
 
 function getReplacedPostText($post_text){
