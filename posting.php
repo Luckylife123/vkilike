@@ -71,8 +71,6 @@ class Posting
     {
         $attachments_codes = [];
         foreach ($attachments as $attachment) {
-            print_r($attachment);
-            die('tset');
             array_push($attachments_codes, $this->vkApiClient->getRequest()
                 ->upload($upload_url, 'photo', 'http://vk-posts.tmweb.ru/'.$attachment));
         }

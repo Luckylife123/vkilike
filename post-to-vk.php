@@ -61,6 +61,8 @@ function getSavedAttachments($post_attachments){
             }
         }
     }
+    print_r($imgPath);
+    die($imagePaths);
     return $imagePaths;
 }
 
