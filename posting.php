@@ -34,7 +34,8 @@ class Posting
         $result = $this->vkApiClient->wall()->post($this->access_token, [
             'owner_id' => '-' . $groupId,
             'message' => $text,
-            'attachments' => $photos
+            'attachments' => $photos,
+            'from_group' => 1
         ]);
         return $result;
     }
