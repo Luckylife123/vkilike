@@ -8,7 +8,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()):?>
-        <div style="padding: 10px 0;border: 1px solid #000;">
+        <div class="vk-post">
             <div>
 	            <form action="edit-text.php" method="get">
 		            <input type="text" name="vk-group-id" value="<?php echo $vk_group_id?>" hidden>

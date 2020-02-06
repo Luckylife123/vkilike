@@ -23,5 +23,19 @@ form input{
 	align-items: center;
 	margin-bottom: 10px;
 }
+.vk-post{
+	padding: 10px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #eee;
+	margin-bottom: 10px;
+}
+.vk-post img{
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	margin-right: 10px;
+}
 </style>
 
