@@ -109,7 +109,7 @@ function getTimeForPost($vk_group_id, $conn){
         return $post_time;
     }
     else{
-        $now = new DateTime();
+        $now = new DateTime(new DateTimeZone('Europe/Kiev'));
         $now->add(new DateInterval('PT' . $time_group_for_post . 'M'));
         $post_time = $now->format('Y-m-d H:i:s');
         return $post_time;
