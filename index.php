@@ -11,6 +11,6 @@
 </form>
 <?php
 $date = new DateTime('2020-02-06 18:01');
-$date->getTimestamp()
+die($date->getTimestamp());
 ?>
 <?php include_once ('footer.php')?>
