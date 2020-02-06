@@ -1,4 +1,9 @@
 <?php include_once('header.php'); ?>
+<?php
+if(isset($_get['Added_Posts'])){
+	echo $_get['Added_Posts'].'постів добавлено';
+}
+?>
 <div class="add-posts">
 <form action="/post-to-vk.php" method="get">
 	<label for="group_id_for_posting">Ід групи для постінга</label>

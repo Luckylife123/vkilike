@@ -30,7 +30,7 @@ class Posting
         $attachments_codes = $this->uploadToVk($attachments, $upload_url);
         $loaded_photos = $this->saveWallPost($attachments_codes, $groupId);
         $photos = $this->getPhotosFromVk($loaded_photos);
-        sleep(2);
+        sleep(1);
         $result = $this->vkApiClient->wall()->post($this->access_token, [
             'owner_id' => '-' . $groupId,
             'message' => $text,
@@ -56,7 +56,7 @@ class Posting
     {
         $loaded_photos = [];
         foreach ($attachments_codes as $attachment_code) {
-            sleep(2);
+            sleep(1);
             $result = $this->vkApiClient->photos()->saveWallPhoto($this->access_token, [
                 "group_id" => $group_id,
                 "photo" => $attachment_code['photo'],
@@ -73,7 +73,7 @@ class Posting
     {
         $attachments_codes = [];
         foreach ($attachments as $attachment) {
-            sleep(2);
+            sleep(1);
             array_push($attachments_codes, $this->vkApiClient->getRequest()
                 ->upload($upload_url, 'photo', '/home/c/cr27008/vkposts/public_html/'.$attachment));
         }
@@ -145,9 +145,9 @@ class Posting
         if ($this->isHasLessActivity($post['views']['count'], $views)) {
             return false;
         }
-        if ($this->isHasLessText($post['text'], $count_text)) {
-            return false;
-        }
+//        if ($this->isHasLessText($post['text'], $count_text)) {
+//            return false;
+//        }
 
         return true;
     }
@@ -161,6 +161,7 @@ class Posting
             return false;
         }
     }
+
     public function isHasLessActivity($activity, $minActivity)
     {
         if (!isset($activity)) {

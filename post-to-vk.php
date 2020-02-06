@@ -21,7 +21,7 @@ $time_for_post = new DateTime($start_time_for_post, new DateTimeZone('Europe/Kie
 $posting = new Posting($access_token);
 $posts = $posting->getFilteredPosts($group_id_for_get_post, $count, $offset,$photos_in_post,$comments,$likes,$reposts,$views,$count_text);
 
-
+$added_posts = 0;
 if($posts) {
     foreach ($posts as $post){
         deleteSavedAttachments();
@@ -29,8 +29,9 @@ if($posts) {
         $post_attachments = getSavedAttachments($post['attachments']);
         $posting->addPost($group_id_for_posting, $post_text, $post_attachments, $time_for_post->getTimestamp());
         $time_for_post->add(new DateInterval('PT' . $period_posts . 'M'));
+        $added_posts++;
     }
-    header("Location: /index.php");
+    header("Location: /index.php?Added_Posts=".$added_posts);
     $conn->close();
 } else{
     die("За такими параметрами немає постів");
