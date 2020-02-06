@@ -59,12 +59,8 @@ function addPostToDb($conn,$vk_group_id,$post_text,$post_attachments){
 }
 function getReplacedPostText($post_text){
     $letters = array('е' => 'e','а' => 'a', 'х' => 'x' ,'у' => 'y' , 'о' => 'o');
-    foreach ($letters as $letter => $key){
-        echo $letter;
-        echo $key;
-        echo $letter[$key];
-        die($letter[$key]);
-        $post_text = str_replace($letter[$key], $key, $post_text);
+    foreach ($letters as $russian_letter => $english_letter){
+        $post_text = str_replace($russian_letter, $english_letter, $post_text);
     }
     return $post_text;
 }
