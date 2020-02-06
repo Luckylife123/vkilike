@@ -66,7 +66,7 @@ class Posting
     public function uploadToVk($attachments,$upload_url){
         $attachments_codes = [];
         foreach ($attachments as $attachment){
-            array_push($attachments_codes, $this->vkApiClient->getRequest()->upload($upload_url,'photo','http://vk-posts.tmweb.ru/'.$attachment));
+            array_push($attachments_codes, $this->vkApiClient->getRequest()->upload($upload_url,'photo','/home/c/cr27008/vkposts/public_html/'.$attachment));
         }
         return $attachments_codes;
     }
