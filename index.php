@@ -9,5 +9,8 @@
 		Добавити групу
 	</button>
 </form>
-
+<?php
+$date = new DateTime('2020-02-06 18:01');
+$date->getTimestamp()
+?>
 <?php include_once ('footer.php')?>
