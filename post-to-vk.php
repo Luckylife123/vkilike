@@ -32,7 +32,7 @@ if($posts) {
         $time_for_post->add(new DateInterval('PT' . $period_posts . 'M'));
         $added_posts++;
     }
-    header("Location: /index.php?Added_Posts=".$added_posts);
+    header("Location: /index.php?Added_Posts=".$added_posts."&group_id_for_posting=".$group_id_for_posting."&group_id_for_get_post=".$group_id_for_get_post."&count=".$count."&offset=".$offset."&photos_in_post=".$photos_in_post."&comments=".$comments."&likes=".$likes."&reposts=".$reposts."&views=".$views."&count_text=".$count_text."&period_posts=".$period_posts."&start_time_for_post=".$start_time_for_post);
     $conn->close();
 } else{
     $conn->close();
