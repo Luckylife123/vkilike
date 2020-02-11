@@ -144,9 +144,9 @@ class Posting
         if ($this->isHasLessActivity($post['views']['count'], $views)) {
             return false;
         }
-//        if ($this->isHasLessText($post['text'], $count_text)) {
-//            return false;
-//        }
+        if ($this->isHasLessText($post['text'], $count_text)) {
+            return false;
+        }
 
         return true;
     }

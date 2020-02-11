@@ -1,6 +1,7 @@
 <?php include_once('connect-to-db.php'); ?>
 <?php include_once('posting.php'); ?>
 <?php
+set_time_limit(0);
 $access_token = getFirstAccessKey($conn);
 
 $group_id_for_posting = $_GET['group_id_for_posting'];
