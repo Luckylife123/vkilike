@@ -123,7 +123,7 @@ else {
 	<input type="text" name="views"  value="<?php echo $views?>" required>
 
 	<label for="cout_text">Мінімальна кількість символів в тексті</label>
-	<input type="text" name="cout_text"  value="<?php echo $count_text?>" required>
+	<input type="text" name="count_text"  value="<?php echo $count_text?>" required>
 
 
 	<label for="start_time_for_post">Дата від якої починати кидати в відложку Рік-місяць-день година:хвилина</label>
