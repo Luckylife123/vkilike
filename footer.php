@@ -8,12 +8,8 @@
           async: true,
           dataType: "html",
           complete: function(result){
-            alert(result);
+            console.log(result);
           }
-        }).done(function() {
-          console.log('success');
-        }).fail(function() {
-          console.log('fail');
         });
       });
     });
