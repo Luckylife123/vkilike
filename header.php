@@ -5,6 +5,7 @@
 	<title>Document</title>
 </head>
 <body>
+<script src="js/jquery-3.4.1.min.js"></script>
 <style>
 form {
 	display: flex;

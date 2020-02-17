@@ -94,7 +94,7 @@ else {
 }
 ?>
 <div class="add-posts">
-<form action="/post-to-vk.php" method="get">
+<form method="get" id="form_posting">
 	<label for="group_id_for_posting">Ід групи для постінга</label>
 	<input type="text" name="group_id_for_posting" required value="<?php echo $group_id_for_posting?>">
 
