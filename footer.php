@@ -1,6 +1,7 @@
 <script>
 	jQuery('document').ready(function () {
       jQuery('#form_posting').submit(function(e) {
+        e.preventDefault();
         jQuery.ajax({
           type: jQuery(this).attr('method'),
           url: '/post-to-vk.php',
