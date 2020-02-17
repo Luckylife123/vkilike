@@ -32,12 +32,11 @@ if($posts) {
         $time_for_post->add(new DateInterval('PT' . $period_posts . 'M'));
         $added_posts++;
     }
-//    header("Location: /index.php?Added_Posts=".$added_posts."&group_id_for_posting=".$group_id_for_posting."&group_id_for_get_post=".$group_id_for_get_post."&count=".$count."&offset=".$offset."&photos_in_post=".$photos_in_post."&comments=".$comments."&likes=".$likes."&reposts=".$reposts."&views=".$views."&count_text=".$count_text."&period_posts=".$period_posts."&start_time_for_post=".$start_time_for_post);
     $conn->close();
-    return $added_posts." добавлено";
+    header("Location: /index.php?Added_Posts=".$added_posts."&group_id_for_posting=".$group_id_for_posting."&group_id_for_get_post=".$group_id_for_get_post."&count=".$count."&offset=".$offset."&photos_in_post=".$photos_in_post."&comments=".$comments."&likes=".$likes."&reposts=".$reposts."&views=".$views."&count_text=".$count_text."&period_posts=".$period_posts."&start_time_for_post=".$start_time_for_post);
 } else{
     $conn->close();
-    return "За такими параметрами немає постів";
+    die("За такими параметрами немає постів");
 }
 
 function getSavedAttachments($post_attachments){
@@ -85,7 +84,7 @@ function deleteSavedAttachments(){
 }
 
 function getReplacedPostText($post_text){
-    $letters = array('е' => 'e','а' => 'a', 'х' => 'x' ,'у' => 'y' , 'о' => 'o', 'с' => 'c');
+    $letters = array('М' => 'M','В' => 'B','Н' => 'H','К' => 'K','Т' => 'T','р' => 'p', 'е' => 'e','а' => 'a', 'х' => 'x' ,'у' => 'y' , 'о' => 'o', 'с' => 'c');
     foreach ($letters as $russian_letter => $english_letter){
         $post_text = str_replace($russian_letter, $english_letter, $post_text);
     }
