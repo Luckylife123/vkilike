@@ -11,6 +11,10 @@
           complete: function(result){
             alert(result);
           }
+        }).done(function() {
+          console.log('success');
+        }).fail(function() {
+          console.log('fail');
         });
       });
     });
