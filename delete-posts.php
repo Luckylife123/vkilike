@@ -12,7 +12,7 @@ $posts = $posting->getPosts($group_id_for_delete_posts, $count, $offset);
 $post_views_count = 0;
 
 if($posts) {
-    foreach ($posts['items'] as $post){
+    foreach ($posts['items'] as $post => $key){
         print_r($post);
         die($post);
         if($post_views_count > $post['views']['count']){
