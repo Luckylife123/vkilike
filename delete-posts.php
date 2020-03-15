@@ -14,7 +14,7 @@ $post_views_count = 0;
 
 if($posts) {
     foreach ($posts as $key => $post){
-        if($post_views_count > $post['views']['count']){
+        if($post_views_count < $post['views']['count']){
             $post_views_count = $post['views']['count'];
         }
     }
@@ -27,7 +27,7 @@ if($posts) {
 
     $post_views_count = 0;
     foreach ($posts as $key => $post){
-        if($post_views_count > $post['views']['count']){
+        if($post_views_count < $post['views']['count']){
             $post_views_count = $post['views']['count'];
         }
     }
