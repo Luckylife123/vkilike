@@ -31,7 +31,7 @@ if($posts) {
         }
     }
     foreach ($posts as $post => $key){
-        die($post['views']['count']);
+        die($post['views']);
         if($post_views_count = $post['views']['count']){
             unset($posts[$post]);
         }
