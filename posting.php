@@ -48,6 +48,9 @@ class Posting
             'post_id' => $postId
         ]);
         sleep(1);
+        print_r($result);
+        die($result);
+
         return $result;
     }
 
