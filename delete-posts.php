@@ -32,7 +32,7 @@ if($posts) {
     }
     foreach ($posts['items'] as $key => $post){
         if($post_views_count = $post['views']['count']){
-            unset($posts[$post]);
+            unset($posts[$key]);
         }
     }
     print_r($posts);
