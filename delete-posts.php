@@ -10,7 +10,8 @@ $offset = $_GET['offset'];
 $posting = new Posting($access_token);
 $posts = $posting->getPosts($group_id_for_delete_posts, $count, $offset);
 $post_views_count = 0;
-
+print_r($post);
+die("Tset");
 if($posts) {
     foreach ($posts as $key => $post){
         if($post_views_count > $post['views']['count']){
