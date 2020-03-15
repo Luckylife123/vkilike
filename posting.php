@@ -48,8 +48,6 @@ class Posting
             'post_id' => $postId
         ]);
         sleep(1);
-        die($result);
-
         return $result;
     }
 
