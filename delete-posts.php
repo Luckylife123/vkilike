@@ -31,12 +31,13 @@ if($posts) {
         }
     }
     foreach ($posts as $key => $post){
+        print_r($posts[$key]);
+        die("Tset");
+
         if($post_views_count = $post['views']['count']){
             unset($posts[$key]);
         }
     }
-    print_r($posts);
-    die("Tset");
 
     foreach ($posts as $key => $post){
         $posting->deletePost($group_id_for_delete_posts, $post['id']);
