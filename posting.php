@@ -43,8 +43,6 @@ class Posting
 
 
     public function deletePost($groupId, $postId){
-        print_r($postId);
-        die($postId);
         $result = $this->vkApiClient->wall()->restore($this->access_token, [
             'owner_id' => '-' . $groupId,
             'post_id' => $postId
