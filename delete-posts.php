@@ -4,8 +4,8 @@
 $access_token = getFirstAccessKey($conn);
 
 $group_id_for_delete_posts = $_GET['group_id_for_delete_posts'];
-$count = $_GET['$count'];
-$offset = $_GET['$offset'];
+$count = $_GET['count'];
+$offset = $_GET['offset'];
 
 $posting = new Posting($access_token);
 $posts = $posting->getPosts($group_id_for_delete_posts, $count, $offset);
