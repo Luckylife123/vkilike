@@ -39,7 +39,7 @@ if($posts) {
 
 
     foreach ($posts as $post){
-        die($post['id']);
+        die($post);
         $posting->deletePost($group_id_for_delete_posts, $post['id']);
     }
 
