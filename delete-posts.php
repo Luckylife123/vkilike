@@ -9,15 +9,16 @@ $offset = $_GET['offset'];
 
 $posting = new Posting($access_token);
 $posts = $posting->getPosts($group_id_for_delete_posts, $count, $offset);
+$posts = $posts['items'];
 $post_views_count = 0;
 
 if($posts) {
-    foreach ($posts['items'] as $key => $post){
+    foreach ($posts as $key => $post){
         if($post_views_count > $post['views']['count']){
             $post_views_count = $post['views']['count'];
         }
     }
-    foreach ($posts['items'] as $key => $post){
+    foreach ($posts as $key => $post){
         if($post_views_count = $post['views']['count']){
             unset($posts[$key]);
         }
@@ -25,12 +26,12 @@ if($posts) {
 
 
     $post_views_count = 0;
-    foreach ($posts['items'] as $key => $post){
+    foreach ($posts as $key => $post){
         if($post_views_count > $post['views']['count']){
             $post_views_count = $post['views']['count'];
         }
     }
-    foreach ($posts['items'] as $key => $post){
+    foreach ($posts as $key => $post){
         if($post_views_count = $post['views']['count']){
             unset($posts[$key]);
         }
