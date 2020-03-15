@@ -13,8 +13,8 @@ $post_views_count = 0;
 
 if($posts) {
     foreach ($posts as $post){
-        print_r($posts);
-        die($posts);
+        print_r($post);
+        die($post);
         if($post_views_count > $post['views']['count']){
             $post_views_count = $post['views']['count'];
         }
