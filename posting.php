@@ -41,6 +41,16 @@ class Posting
         return $result;
     }
 
+
+    public function deletePost($groupId, $postId){
+        $result = $this->vkApiClient->wall()->restore($this->access_token, [
+            'owner_id' => '-' . $groupId,
+            'post_id' => $postId
+        ]);
+        sleep(1);
+        return $result;
+    }
+
     public function getPhotosFromVk($loaded_photos)
     {
         $photos = "";
@@ -73,7 +83,7 @@ class Posting
         $attachments_codes = [];
         foreach ($attachments as $attachment) {
             array_push($attachments_codes, $this->vkApiClient->getRequest()
-                ->upload($upload_url, 'photo', '/home/c/cr27008/vkposts/public_html/'.$attachment));
+                ->upload($upload_url, 'photo', '/home/c/cr27008/vkposts/public_html/' . $attachment));
             sleep(1);
         }
 
@@ -90,6 +100,17 @@ class Posting
         return $upload_url;
     }
 
+    public function getPosts($groupId, $count, $offset)
+    {
+        $posts = $this->vkApiClient->wall()->get($this->access_token, [
+            'owner_id' => '-' . $groupId,
+            'count' => $count,
+            'offset' => $offset,
+        ]);
+
+        return $posts;
+    }
+
     public function getFilteredPosts(
         $groupId,
         $count,
@@ -101,18 +122,15 @@ class Posting
         $views,
         $count_text
     ) {
-        $posts = $this->vkApiClient->wall()->get($this->access_token, [
-            'owner_id' => '-' . $groupId,
-            'count' => $count,
-            'offset' => $offset,
-        ]);
+        $posts = $this->getPosts($groupId, $count, $offset);
         if (empty($posts)) {
             return false;
         }
         $posts = $posts['items'];
         $validatePosts = [];
         foreach ($posts as $post) {
-            $isValidatePost = $this->filterPost($post, $photos_in_post, $comments, $likes, $reposts, $views, $count_text);
+            $isValidatePost =
+                $this->filterPost($post, $photos_in_post, $comments, $likes, $reposts, $views, $count_text);
             if ($isValidatePost) {
                 array_push($validatePosts, $post);
             }
@@ -151,12 +169,11 @@ class Posting
         return true;
     }
 
-
-    public  function isHasLessText($post_text, $count_text){
-        if($count_text > iconv_strlen($post_text, 'UTF-8')){
+    public function isHasLessText($post_text, $count_text)
+    {
+        if ($count_text > iconv_strlen($post_text, 'UTF-8')) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }
