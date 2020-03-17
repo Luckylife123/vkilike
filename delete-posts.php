@@ -3,9 +3,9 @@
 <?php
 $access_token = getFirstAccessKey($conn);
 
-$group_id_for_delete_posts = $_GET['group_id_for_delete_posts'];
-$count = $_GET['count'];
-$offset = $_GET['offset'];
+$group_id_for_delete_posts = '90013316';
+$count = 24;
+$offset = 1;
 
 $posting = new Posting($access_token);
 $posts = $posting->getPosts($group_id_for_delete_posts, $count, $offset);
@@ -37,6 +37,17 @@ if($posts) {
         }
     }
 
+    $post_views_count = 0;
+    foreach ($posts as $key => $post){
+        if($post_views_count < $post['views']['count']){
+            $post_views_count = $post['views']['count'];
+        }
+    }
+    foreach ($posts as $key => $post){
+        if($post_views_count == $post['views']['count']){
+            unset($posts[$key]);
+        }
+    }
 
     foreach ($posts as $post){
         $posting->deletePost($group_id_for_delete_posts, $post['id']);
