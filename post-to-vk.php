@@ -90,7 +90,7 @@ function getReplacedPostText($post_text){
     }
     $arrayOfStrings = ["Что скажете?", "Что думаете?", "Ваше мнение?", "Как считаете?", "Дааа уж", "Есть что сказать об этом?"];
     $randomInt = random_int(0, (count($arrayOfStrings) - 1));
-    $post_text .= "\n" . $arrayOfStrings[$randomInt];
+    $post_text .= " " . $arrayOfStrings[$randomInt];
     return $post_text;
 }
 
