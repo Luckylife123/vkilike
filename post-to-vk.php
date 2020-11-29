@@ -88,6 +88,9 @@ function getReplacedPostText($post_text){
     foreach ($letters as $russian_letter => $english_letter){
         $post_text = str_replace($russian_letter, $english_letter, $post_text);
     }
+    $arrayOfStrings = ["Что скажете?", "Что думаете?", "Ваше мнение?", "Как считаете?", "Дааа уж", "Есть что сказать об этом?"];
+    $randomInt = random_int(0, (count($arrayOfStrings) - 1));
+    $post_text .= "\n" . $arrayOfStrings[$randomInt];
     return $post_text;
 }
 
